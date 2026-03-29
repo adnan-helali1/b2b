@@ -11,7 +11,7 @@ class B2bApp extends StatelessWidget {
     final appRouter = AppRouter();
 
     return ScreenUtilInit(
-      designSize: Size(360, 690),
+      designSize: Size(440, 956),
       splitScreenMode: true,
       minTextAdapt: true,
 
