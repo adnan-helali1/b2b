@@ -1,4 +1,8 @@
+import 'package:b2b/core/helpers/spacing.dart';
+import 'package:b2b/core/theme/colors.dart';
+import 'package:b2b/core/theme/textstyles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuickActionItem extends StatelessWidget {
   final IconData icon;
@@ -17,14 +21,9 @@ class QuickActionItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.white, size: 26),
-          const SizedBox(height: 8),
-          Text(
-            label,
-            style: Theme.of(
-              context,
-            ).textTheme.bodySmall?.copyWith(color: Colors.white, fontSize: 12),
-          ),
+          Icon(icon, color: ColorsManegar.white, size: 26.sp),
+          verticalSpace(8.h),
+          Text(label, style: TextStyles.font12whitenormal),
         ],
       ),
     );

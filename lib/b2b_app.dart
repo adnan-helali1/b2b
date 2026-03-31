@@ -27,13 +27,6 @@ class B2bApp extends StatelessWidget {
 
             // ✅ أهم سطر
             fontFamily: 'Cairo',
-
-            textTheme: const TextTheme(
-              bodyMedium: TextStyle(fontSize: 14),
-              titleLarge: TextStyle(fontWeight: FontWeight.w700),
-            ),
-
-            primaryTextTheme: const TextTheme(),
           ),
         );
       },
