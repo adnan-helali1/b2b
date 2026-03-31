@@ -1,5 +1,6 @@
 import 'package:b2b/core/routing/app_router.dart';
 import 'package:b2b/core/routing/routes.dart';
+import 'package:b2b/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +20,7 @@ class B2bApp extends StatelessWidget {
         initialRoute: Routes.superhomeScreen,
         onGenerateRoute: appRouter.generateRoute,
         title: 'B2B App',
-        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+        theme: ThemeData(scaffoldBackgroundColor: ColorsManegar.scaffoldColor),
         debugShowCheckedModeBanner: false,
       ),
     );
