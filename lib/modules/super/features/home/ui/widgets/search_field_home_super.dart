@@ -19,14 +19,12 @@ class SearchFieldHomeSuper extends StatelessWidget {
         ),
         child: Row(
           children: [
-            /// 🔔 Notification Icon
             Stack(
               children: [
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.notifications_none),
                 ),
-
                 Positioned(
                   right: 10,
                   top: 10,
@@ -41,14 +39,13 @@ class SearchFieldHomeSuper extends StatelessWidget {
                 ),
               ],
             ),
-
             Expanded(
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "ابحث عن منتج، فئة أو مورد...",
+                  hintText: 'ابحث عن منتج، فئة أو مورد...',
                   border: InputBorder.none,
                   suffixIcon: const Icon(Icons.search),
-                  hintStyle: TextStyles.font18greyw600,
+                  hintStyle: TextStyles.font18greyw600(context),
                 ),
               ),
             ),
