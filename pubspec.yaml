@@ -58,5 +58,7 @@ flutter:
           weight: 400
         - asset: assets/fonts/cairo/Cairo-Medium.ttf
           weight: 500
+        - asset: assets/fonts/cairo/Cairo-semiBold.ttf
+          weight: 600          
         - asset: assets/fonts/cairo/Cairo-Bold.ttf
           weight: 700

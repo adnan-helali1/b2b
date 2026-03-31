@@ -19,7 +19,6 @@ class SuperHomeScreen extends StatelessWidget {
         titleSpacing: 16,
         title: AppTitleAppbar(),
 
-        // ⚡ Actions
         actions: [
           IconButton(
             icon: const Icon(

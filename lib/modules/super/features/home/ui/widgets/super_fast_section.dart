@@ -1,5 +1,8 @@
+import 'package:b2b/core/helpers/spacing.dart';
+import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/sections_fast.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuickActionsSection extends StatelessWidget {
   const QuickActionsSection({super.key});
@@ -20,33 +23,26 @@ class QuickActionsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'إجراءات سريعة',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          const SizedBox(height: 16),
-          const Row(
+          Text('إجراءات سريعة', style: TextStyles.font16whiteW700),
+          verticalSpace(16.h),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              const Expanded(
                 child: QuickActionItem(
                   icon: Icons.inventory_2_outlined,
                   label: 'المخزون',
                 ),
               ),
-              SizedBox(width: 10),
-              Expanded(
+              horizontalSpace(10.w),
+              const Expanded(
                 child: QuickActionItem(
                   icon: Icons.receipt_long_outlined,
                   label: 'طلباتي',
                 ),
               ),
-              SizedBox(width: 10),
-              Expanded(
+              horizontalSpace(10.w),
+              const Expanded(
                 child: QuickActionItem(
                   icon: Icons.add_box_outlined,
                   label: 'طلب جديد',
