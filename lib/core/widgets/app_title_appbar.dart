@@ -28,14 +28,8 @@ class AppTitleAppbar extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'متجر الأسرة',
-              style: TextStyles.font18BlackBold(context),
-            ),
-            Text(
-              'سوبر ماركت',
-              style: TextStyles.font12Grey(context),
-            ),
+            Text('متجر الأسرة', style: TextStyles.font18BlackBold),
+            Text('سوبر ماركت', style: TextStyles.font12Grey),
           ],
         ),
       ],
