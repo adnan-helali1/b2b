@@ -17,4 +17,9 @@ class TextStyles {
     fontSize: 18.sp,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle font12GreyW600 = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManegar.grey600,
+    fontWeight: FontWeight.w600,
+  );
 }

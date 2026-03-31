@@ -1,4 +1,8 @@
+import 'package:b2b/core/helpers/spacing.dart';
+import 'package:b2b/core/theme/colors.dart';
+import 'package:b2b/core/theme/textstyles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StatCard extends StatelessWidget {
   final IconData icon;
@@ -21,9 +25,9 @@ class StatCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 18),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: ColorsManegar.white,
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: Colors.grey.shade200),
+        border: Border.all(color: ColorsManegar.grey200),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -38,22 +42,15 @@ class StatCard extends StatelessWidget {
           const SizedBox(height: 10),
 
           /// Number
-          Text(
-            number,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
+          Text(number, style: TextStyles.font18BlackBold),
 
-          const SizedBox(height: 5),
+          verticalSpace(5.h),
 
           /// Label
           Text(
             label,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.grey.shade600,
-              fontWeight: FontWeight.w600,
-            ),
+            style: TextStyles.font12GreyW600,
           ),
         ],
       ),

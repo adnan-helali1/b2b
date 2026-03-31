@@ -9,5 +9,12 @@ class ColorsManegar {
   static const Color red = Color(0xffF05555);
   static const Color scaffoldColor = Color(0xffF9FAFB);
   static const Color grey600 = Color(0xff9E9E9E);
+  static Color grey200 = Colors.grey.shade200;
+
   static const Color grey = Color(0xffCCCCCC);
+  static const Color darkMove = Color(0xFF5268A5);
+  static const Color move = Color(0xffE8EBF3);
+  static const Color blue = Colors.blue;
+  static const Color lightBlue = Color(0xFFEAF2FF);
+  static const Color lightRed = Color(0xFFFFEAEA);
 }
