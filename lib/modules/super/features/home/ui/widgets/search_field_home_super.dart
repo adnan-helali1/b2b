@@ -45,7 +45,7 @@ class SearchFieldHomeSuper extends StatelessWidget {
                   hintText: 'ابحث عن منتج، فئة أو مورد...',
                   border: InputBorder.none,
                   suffixIcon: const Icon(Icons.search),
-                  hintStyle: TextStyles.font18greyw600(context),
+                  hintStyle: TextStyles.font18greyw600,
                 ),
               ),
             ),
