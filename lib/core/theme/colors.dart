@@ -15,4 +15,5 @@ class ColorsManegar {
   static const Color blue = Colors.blue;
   static const Color lightBlue = Color(0xFFEAF2FF);
   static const Color lightRed = Color(0xFFFFEAEA);
+  static const scaffold = Color(0xFFF5F5F5);
 }

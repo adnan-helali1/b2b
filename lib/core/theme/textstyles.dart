@@ -40,4 +40,25 @@ class TextStyles {
     fontSize: 12.sp,
     fontFamily: 'cairo',
   );
+
+  static TextStyle font22blackbold = TextStyle(
+    fontSize: 22.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
+  static TextStyle font14grye600 = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManegar.grey600,
+  );
+
+  static TextStyle font12grey600 = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManegar.grey600,
+  );
+  static TextStyle font16blackbold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
 }
