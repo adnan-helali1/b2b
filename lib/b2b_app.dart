@@ -19,11 +19,12 @@ class B2bApp extends StatelessWidget {
         return MaterialApp(
           title: 'B2B App',
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.superHomeScreen,
+          initialRoute: Routes.supplierHomeScreen,
           onGenerateRoute: appRouter.generateRoute,
 
           theme: ThemeData(
-            scaffoldBackgroundColor: ColorsManegar.scaffoldColor,
+            scaffoldBackgroundColor:
+                ColorsManegar.scaffoldColor,
 
             fontFamily: 'Cairo',
           ),

@@ -16,4 +16,8 @@ class ColorsManegar {
   static const Color lightBlue = Color(0xFFEAF2FF);
   static const Color lightRed = Color(0xFFFFEAEA);
   static const scaffold = Color(0xFFF5F5F5);
+  static const Color cardiconBgcolor = Color(0x1A2196F3);
+  static const Color green = Colors.green;
+  static const Color green100 = Color(0x1A4CAF50);
+  static Color grey900 = Colors.grey.shade900;
 }
