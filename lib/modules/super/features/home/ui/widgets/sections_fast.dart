@@ -8,23 +8,17 @@ class QuickActionItem extends StatelessWidget {
   final IconData icon;
   final String label;
 
-  const QuickActionItem({
-    super.key,
-    required this.icon,
-    required this.label,
-  });
+  const QuickActionItem({super.key, required this.icon, required this.label});
 
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final ext = Theme.of(
-      context,
-    ).extension<AppColorScheme>()!;
+    final ext = Theme.of(context).extension<AppColorScheme>()!;
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 14),
       decoration: BoxDecoration(
-        color: cs.onPrimary.withOpacity(0.15), // ✅ FIXED
+        color: cs.onPrimary.withOpacity(0.15),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(

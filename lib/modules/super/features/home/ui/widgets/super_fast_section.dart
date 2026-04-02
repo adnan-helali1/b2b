@@ -23,14 +23,10 @@ class QuickActionsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'إجراءات سريعة',
-            style: TextStyles.font16w700,
-          ),
+          Text('إجراءات سريعة', style: TextStyles.font16w700),
           verticalSpace(16.h),
           Row(
-            mainAxisAlignment:
-                MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Expanded(
                 child: QuickActionItem(

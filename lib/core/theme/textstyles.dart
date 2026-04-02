@@ -30,7 +30,11 @@ class TextStyles {
     fontWeight: FontWeight.w700,
     fontFamily: 'cairo',
   );
-
+  static final TextStyle font15w700 = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'cairo',
+  );
   static final TextStyle font12normal = TextStyle(
     fontSize: 12.sp,
     fontFamily: 'cairo',
