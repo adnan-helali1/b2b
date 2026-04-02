@@ -1,7 +1,8 @@
 import 'package:b2b/core/helpers/spacing.dart';
-import 'package:b2b/core/theme/colors.dart';
 import 'package:b2b/core/theme/textstyles.dart';
+import 'package:b2b/core/theme/theme_mode_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class B2bAppBar extends StatelessWidget
@@ -9,7 +10,8 @@ class B2bAppBar extends StatelessWidget
   final String title;
   final String subtitle;
   final IconData icon;
-  B2bAppBar({
+
+  const B2bAppBar({
     super.key,
     required this.title,
     required this.subtitle,
@@ -17,31 +19,29 @@ class B2bAppBar extends StatelessWidget
   });
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize =>
       const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+
     return AppBar(
-      backgroundColor: ColorsManegar.white,
+      backgroundColor: cs.surface,
       elevation: 1,
       automaticallyImplyLeading: false,
       titleSpacing: 16,
+
       title: Row(
         children: [
           Container(
             width: 40.w,
             height: 40.h,
-            decoration: const BoxDecoration(
-              color: ColorsManegar.backgroundIcon,
+            decoration: BoxDecoration(
+              color: cs.primary.withOpacity(0.12),
               shape: BoxShape.circle,
             ),
-            child: Icon(
-              icon,
-              color: ColorsManegar.white,
-              size: 20,
-            ),
+            child: Icon(icon, color: cs.primary, size: 20),
           ),
           horizontalSpace(10),
           Column(
@@ -49,11 +49,15 @@ class B2bAppBar extends StatelessWidget
             children: [
               Text(
                 title,
-                style: TextStyles.font18BlackBold,
+                style: TextStyles.font18Bold.copyWith(
+                  color: cs.onSurface,
+                ),
               ),
               Text(
                 subtitle,
-                style: TextStyles.font14grye600,
+                style: TextStyles.font14.copyWith(
+                  color: cs.onSurfaceVariant,
+                ),
               ),
             ],
           ),
@@ -62,19 +66,19 @@ class B2bAppBar extends StatelessWidget
 
       actions: [
         IconButton(
-          icon: const Icon(
-            Icons.dark_mode_outlined,
-            color: ColorsManegar.blac,
+          icon: Icon(
+            Theme.of(context).brightness == Brightness.light
+                ? Icons.dark_mode_outlined
+                : Icons.light_mode_outlined,
+            color: cs.onSurface,
           ),
           onPressed: () {
-            // TODO: toggle theme
+            context.read<ThemeModeCubit>().toggle();
           },
         ),
         IconButton(
-          icon: const Icon(Icons.logout, color: Colors.red),
-          onPressed: () {
-            // TODO: logout
-          },
+          icon: Icon(Icons.logout, color: cs.error),
+          onPressed: () {},
         ),
         const SizedBox(width: 8),
       ],

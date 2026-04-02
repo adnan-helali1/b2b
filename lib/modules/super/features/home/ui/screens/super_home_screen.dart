@@ -1,9 +1,9 @@
 import 'package:b2b/core/helpers/spacing.dart';
-import 'package:b2b/core/theme/colors.dart';
+import 'package:b2b/core/theme/app_color_scheme_extention.dart';
+import 'package:b2b/core/widgets/b2b_app_bar.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/search_field_home_super.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/stats_row.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/super_fast_section.dart';
-import 'package:b2b/core/widgets/app_title_appbar.dart';
 import 'package:flutter/material.dart';
 
 class SuperHomeScreen extends StatelessWidget {
@@ -11,38 +11,26 @@ class SuperHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorsManegar.white,
-        elevation: 1,
-        automaticallyImplyLeading: false,
-        titleSpacing: 16,
-        title: AppTitleAppbar(),
+    final cs = Theme.of(context).colorScheme;
+    final ext = Theme.of(
+      context,
+    ).extension<AppColorScheme>()!;
 
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.dark_mode_outlined,
-              color: ColorsManegar.blac,
-            ),
-            onPressed: () {
-              // TODO: toggle theme
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.logout, color: Colors.red),
-            onPressed: () {
-              // TODO: logout
-            },
-          ),
-          const SizedBox(width: 8),
-        ],
+    return Scaffold(
+      appBar: B2bAppBar(
+        title: 'متجر الأسرة',
+        subtitle: 'سوبر ماركت',
+        icon: Icons.shopping_cart_outlined,
       ),
+
       body: ListView(
         children: [
           verticalSpace(20),
-          SearchFieldHomeSuper(),
-          Padding(padding: const EdgeInsets.all(16), child: StatsRow()),
+          const SearchFieldHomeSuper(),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: const StatsRow(),
+          ),
           const QuickActionsSection(),
         ],
       ),

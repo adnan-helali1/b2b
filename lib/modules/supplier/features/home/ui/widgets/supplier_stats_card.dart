@@ -1,4 +1,4 @@
-import 'package:b2b/core/theme/colors.dart';
+import 'package:b2b/core/theme/app_color_scheme_extention.dart';
 import 'package:flutter/material.dart';
 
 class SupplierStatsCard extends StatelessWidget {
@@ -19,15 +19,22 @@ class SupplierStatsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final ext = Theme.of(
+      context,
+    ).extension<AppColorScheme>()!;
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: ColorsManegar.white,
+        color: ext.cardBackground, // ✅ FIXED
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.grey.shade200),
+        border: Border.all(
+          color: ext.borderColor.withOpacity(0.4),
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade300,
+            color: cs.shadow.withOpacity(0.08),
             blurRadius: 6,
             offset: const Offset(0, 2),
           ),
@@ -35,7 +42,7 @@ class SupplierStatsCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          //  Icon Container
+          // Icon Container
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
@@ -47,7 +54,7 @@ class SupplierStatsCard extends StatelessWidget {
 
           const SizedBox(width: 12),
 
-          //  Texts
+          // Texts
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -55,16 +62,19 @@ class SupplierStatsCard extends StatelessWidget {
                 value,
                 style: Theme.of(context)
                     .textTheme
-                    .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.bold),
+                    .titleLarge!
+                    .copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: cs.onSurface,
+                    ),
               ),
               const SizedBox(height: 4),
               Text(
                 label,
-                style: Theme.of(context).textTheme.bodySmall
-                    ?.copyWith(
-                      color: ColorsManegar.grey900,
-                    ),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: cs.onSurfaceVariant),
               ),
             ],
           ),
