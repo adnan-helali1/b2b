@@ -3,12 +3,10 @@ description: "A new Flutter project."
 
 publish_to: 'none' 
 
-
 version: 1.0.0+1
 
 environment:
   sdk: ^3.10.3
-
 
 dependencies:
   flutter:
@@ -43,16 +41,24 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^2.4.7
-
-  # Code generation
   freezed: ^2.4.5
   freezed_annotation: ^2.4.1
   json_serializable: ^6.7.1
   retrofit_generator: ^8.0.6
 
 flutter:
-
- 
   uses-material-design: true
-
- 
+   
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/cairo/Cairo-Light.ttf
+          weight: 300
+        - asset: assets/fonts/cairo/Cairo-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/cairo/Cairo-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/cairo/Cairo-semiBold.ttf
+          weight: 600          
+        - asset: assets/fonts/cairo/Cairo-Bold.ttf
+          weight: 700
