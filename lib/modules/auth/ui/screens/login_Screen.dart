@@ -4,6 +4,7 @@ import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/modules/auth/ui/widgets/app_text.dart';
 import 'package:b2b/modules/auth/ui/widgets/auth_button.dart';
 import 'package:b2b/modules/auth/ui/widgets/auth_container.dart';
+import 'package:b2b/modules/auth/ui/widgets/auth_logo_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,7 +25,7 @@ class LoginScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           verticalSpace(10.h),
-
+          AuthLogoContainer(),
           Text(
             'Smart Order',
             style: TextStyles.font22bold.copyWith(
