@@ -2,6 +2,8 @@ import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/app_color_scheme_extention.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/modules/auth/ui/widgets/app_text.dart';
+import 'package:b2b/modules/auth/ui/widgets/auth_button.dart';
+import 'package:b2b/modules/auth/ui/widgets/auth_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,34 +16,13 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final ext = Theme.of(
-      context,
-    ).extension<AppColorScheme>()!;
+    final ext = Theme.of(context).extension<AppColorScheme>()!;
 
     return Scaffold(
       backgroundColor: cs.surface, // ✅ FIXED
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Logo container
-          Container(
-            width: 100.w,
-            height: 100.h,
-            decoration: BoxDecoration(
-              color: cs.primary.withOpacity(
-                0.12,
-              ), // ✅ FIXED
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Center(
-              child: Icon(
-                Icons.shopping_cart_outlined,
-                color: cs.primary, // ✅ FIXED
-                size: 40.sp,
-              ),
-            ),
-          ),
-
           verticalSpace(10.h),
 
           Text(
@@ -71,26 +52,22 @@ class LoginScreen extends StatelessWidget {
 
           // Account type row
           Row(
-            mainAxisAlignment:
-                MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildType(
-                context,
-                Icons.store,
-                'متجر',
-                cs.primary, // ✅ FIXED
+              AuthContainer(
+                icon: Icons.store,
+                text: 'متجر',
+                color: cs.primary, // ✅ FIXED
               ),
-              _buildType(
-                context,
-                Icons.local_shipping,
-                'مورد',
-                cs.secondary, // ✅ FIXED
+              AuthContainer(
+                icon: Icons.local_shipping,
+                text: 'مورد',
+                color: cs.secondary, // ✅ FIXED
               ),
-              _buildType(
-                context,
-                Icons.admin_panel_settings,
-                'مدير',
-                ext.warning, // 🔥 Using theme warning color
+              AuthContainer(
+                icon: Icons.admin_panel_settings,
+                text: 'مدير',
+                color: ext.warning, // 🔥 Using theme warning color
               ),
             ],
           ),
@@ -103,8 +80,7 @@ class LoginScreen extends StatelessWidget {
             hint: 'example@company.com',
             controller: emailController,
             validator: (v) {
-              if (v == null || v.isEmpty)
-                return 'Enter email';
+              if (v == null || v.isEmpty) return 'Enter email';
               return null;
             },
           ),
@@ -117,8 +93,7 @@ class LoginScreen extends StatelessWidget {
             hint: '******',
             controller: passwordController,
             validator: (v) {
-              if (v == null || v.length < 6)
-                return 'Weak password';
+              if (v == null || v.length < 6) return 'Weak password';
               return null;
             },
           ),
@@ -126,56 +101,7 @@ class LoginScreen extends StatelessWidget {
           verticalSpace(30.h),
 
           // Login button
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: cs.primary, // ✅ FIXED
-              foregroundColor: cs.onPrimary,
-              minimumSize: const Size(double.infinity, 50),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            onPressed: () {},
-            child: const Text('تسجيل الدخول'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildType(
-    BuildContext context,
-    IconData icon,
-    String text,
-    Color color,
-  ) {
-    final cs = Theme.of(context).colorScheme;
-
-    return Container(
-      width: 100,
-      height: 100,
-      decoration: BoxDecoration(
-        color: cs.surface, // ✅ FIXED
-        borderRadius: BorderRadius.circular(40),
-        border: Border.all(
-          color: cs.outline.withOpacity(0.3), // ✅ FIXED
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          IconButton(
-            icon: Icon(icon),
-            color: color,
-            onPressed: () {},
-          ),
-          verticalSpace(10.h),
-          Text(
-            text,
-            style: TextStyles.font16bold.copyWith(
-              color: cs.onSurface, // ✅ FIXED
-            ),
-          ),
+          AuthButton(),
         ],
       ),
     );
