@@ -6,6 +6,7 @@ import 'package:b2b/modules/super/features/home/ui/widgets/search_field_home_sup
 import 'package:b2b/modules/super/features/home/ui/widgets/stats_row.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/super_fast_section.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/super_info_caed.dart';
+import 'package:b2b/modules/super/features/home/ui/widgets/texts_home_super.dart';
 import 'package:flutter/material.dart';
 
 class SuperHomeScreen extends StatelessWidget {
@@ -29,26 +30,7 @@ class SuperHomeScreen extends StatelessWidget {
           const SearchFieldHomeSuper(),
           Padding(padding: const EdgeInsets.all(16), child: const StatsRow()),
           const QuickActionsSection(),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 24),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Search by name',
-                  style: TextStyles.font16w700.copyWith(
-                    color: cs.onSurface, // ✅ FIXED
-                  ),
-                ),
-                Text(
-                  'See all',
-                  style: TextStyles.font15w700.copyWith(
-                    color: cs.primary, // ✅ FIXED
-                  ),
-                ),
-              ],
-            ),
-          ),
+          TextsHomeSuper(),
           GridView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
