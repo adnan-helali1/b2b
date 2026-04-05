@@ -6,6 +6,7 @@ import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_bottom_ba
 import 'package:b2b/modules/supplier/features/supplier_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:b2b/modules/admin/features/home/ui/screen/admin_home_ui_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -28,6 +29,10 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => LoginScreen(),
+        );
+         case Routes.adminHomeUIScreen:
+        return MaterialPageRoute(
+          builder: (_) => AdminHomeUiScreen(),
         );
 
       default:
