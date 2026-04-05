@@ -13,7 +13,6 @@ class QuickActionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final ext = Theme.of(context).extension<AppColorScheme>()!;
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 14),

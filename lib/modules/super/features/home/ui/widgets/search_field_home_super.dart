@@ -9,9 +9,7 @@ class SearchFieldHomeSuper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final ext = Theme.of(
-      context,
-    ).extension<AppColorScheme>()!;
+    final ext = Theme.of(context).extension<AppColorScheme>()!;
 
     return Padding(
       padding: const EdgeInsets.all(8),
@@ -19,13 +17,10 @@ class SearchFieldHomeSuper extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         height: 55.h,
         decoration: BoxDecoration(
-          color: cs
-              .surface, // ✅ FIXED (instead of ColorsManegar.white)
+          color: cs.surface,
           borderRadius: BorderRadius.circular(25),
           border: Border.all(
-            color: ext.borderColor.withOpacity(
-              0.4,
-            ), // ✅ FIXED
+            color: ext.borderColor.withOpacity(0.4), // ✅ FIXED
           ),
         ),
         child: Row(
@@ -47,8 +42,7 @@ class SearchFieldHomeSuper extends StatelessWidget {
                     width: 8,
                     height: 8,
                     decoration: BoxDecoration(
-                      color: ext
-                          .warning, // 🔥 Use theme warning color
+                      color: cs.error,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -62,12 +56,9 @@ class SearchFieldHomeSuper extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'ابحث عن منتج، فئة أو مورد...',
                   border: InputBorder.none,
-                  suffixIcon: Icon(
-                    Icons.search,
-                    color: cs.onSurfaceVariant, // ✅ FIXED
-                  ),
+                  suffixIcon: Icon(Icons.search, color: cs.onSurfaceVariant),
                   hintStyle: TextStyles.font18w600.copyWith(
-                    color: cs.onSurfaceVariant, // ✅ FIXED
+                    color: cs.onSurfaceVariant,
                   ),
                 ),
               ),

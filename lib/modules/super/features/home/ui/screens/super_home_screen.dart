@@ -1,6 +1,7 @@
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/widgets/b2b_app_bar.dart';
-import 'package:b2b/modules/super/features/home/data/grid.dart';
+import 'package:b2b/modules/super/features/home/ui/screens/home_Screen.dart';
+import 'package:b2b/modules/super/features/home/ui/screens/super_Categries_grid.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/search_field_home_super.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/stats_row.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/super_fast_section.dart';
@@ -23,13 +24,11 @@ class SuperHomeScreen extends StatelessWidget {
         children: [
           verticalSpace(20),
           const SearchFieldHomeSuper(),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: const StatsRow(),
-          ),
+          Padding(padding: const EdgeInsets.all(16), child: const StatsRow()),
           const QuickActionsSection(),
           TextsHomeSuper(),
           CategoriesGrid(),
+          HomeScreen(),
         ],
       ),
     );
