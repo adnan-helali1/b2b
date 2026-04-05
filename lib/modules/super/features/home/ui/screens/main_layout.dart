@@ -1,6 +1,6 @@
 import 'package:b2b/modules/super/features/home/ui/screens/super_home_screen.dart';
-import 'package:b2b/modules/super/shared/snakBar/snak_cubit.dart';
-import 'package:b2b/modules/super/shared/snakBar/super_snak_bar.dart';
+import 'package:b2b/core/widgets/snakBar/snak_cubit.dart';
+import 'package:b2b/core/widgets/snakBar/super_snak_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

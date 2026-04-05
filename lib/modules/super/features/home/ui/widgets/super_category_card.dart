@@ -1,9 +1,9 @@
+import 'package:b2b/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
   final String title;
   final String count;
-  final String image;
   final Color bgColor;
   final IconData icon;
 
@@ -11,7 +11,6 @@ class CategoryCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.count,
-    required this.image,
     required this.bgColor,
     required this.icon,
   });
@@ -27,18 +26,10 @@ class CategoryCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 🔹 الصورة
-          ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(18)),
-            child: Image.asset(
-              image,
-              height: 110,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
+          verticalSpace(12), Text('HERE WILL BE IMAGE'),
 
           // 🔹 المحتوى
+          verticalSpace(39),
           Padding(
             padding: const EdgeInsets.all(10),
             child: Row(
@@ -61,7 +52,11 @@ class CategoryCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       count,
-                      style: TextStyle(fontSize: 12, color: Colors.grey[700]),
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.grey[700],
+                      ),
                     ),
                   ],
                 ),

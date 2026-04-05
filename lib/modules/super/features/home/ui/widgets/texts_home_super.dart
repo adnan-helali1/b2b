@@ -1,4 +1,3 @@
-import 'package:b2b/core/theme/app_color_scheme_extention.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +7,6 @@ class TextsHomeSuper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final ext = Theme.of(context).extension<AppColorScheme>()!;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 24),
       child: Row(
