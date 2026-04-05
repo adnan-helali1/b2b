@@ -1,32 +1,23 @@
-import 'package:b2b/core/theme/app_color_scheme_extention.dart';
-import 'package:b2b/modules/super/shared/snakBar/snak_cubit.dart';
+import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_bottom_bar/supplier_bar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomBottomNavBar extends StatelessWidget {
-  const CustomBottomNavBar({super.key});
+class SupplierBottomBar extends StatelessWidget {
+  const SupplierBottomBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final ext = Theme.of(
-      context,
-    ).extension<AppColorScheme>()!;
+
     final items = [
-      Icons.home_rounded,
-      Icons.receipt_long,
-      Icons.inventory_2,
-      Icons.person,
+      Icons.category, // المنتجات
+      Icons.inventory_2, // الطلبات
+      Icons.person, // الملف الشخصي
     ];
 
-    final labels = [
-      'الرئيسية',
-      'الطلبات',
-      'المخزون',
-      'الحساب',
-    ];
+    final labels = ['المنتجات', 'الطلبات', 'الملف الشخصي'];
 
-    return BlocBuilder<BottomNavCubit, BottomNavState>(
+    return BlocBuilder<SupplierBarCubit, SupplierBarState>(
       builder: (context, state) {
         return Container(
           margin: const EdgeInsets.all(12),
@@ -47,9 +38,9 @@ class CustomBottomNavBar extends StatelessWidget {
 
               return GestureDetector(
                 onTap: () {
-                  context.read<BottomNavCubit>().changeTab(
-                    index,
-                  );
+                  context
+                      .read<SupplierBarCubit>()
+                      .changeTab(index);
                 },
                 child: TweenAnimationBuilder(
                   duration: const Duration(

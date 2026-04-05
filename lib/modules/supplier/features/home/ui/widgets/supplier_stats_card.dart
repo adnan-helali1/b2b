@@ -25,7 +25,7 @@ class SupplierStatsCard extends StatelessWidget {
     ).extension<AppColorScheme>()!;
 
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(22),
       decoration: BoxDecoration(
         color: ext.cardBackground, // ✅ FIXED
         borderRadius: BorderRadius.circular(16),

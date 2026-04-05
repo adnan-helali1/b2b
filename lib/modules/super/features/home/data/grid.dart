@@ -11,12 +11,13 @@ class CategoriesGrid extends StatelessWidget {
       shrinkWrap: true,
       padding: const EdgeInsets.all(12),
       itemCount: categories.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-        childAspectRatio: 1.4,
-      ),
+      gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 12,
+            crossAxisSpacing: 12,
+            childAspectRatio: 1.4,
+          ),
       itemBuilder: (context, index) {
         final item = categories[index];
 

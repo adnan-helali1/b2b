@@ -38,10 +38,14 @@ class B2bAppBar extends StatelessWidget
             width: 40.w,
             height: 40.h,
             decoration: BoxDecoration(
-              color: cs.primary.withOpacity(0.12),
+              color: cs.primary,
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, color: cs.primary, size: 20),
+            child: Icon(
+              icon,
+              color: cs.onPrimary,
+              size: 20,
+            ),
           ),
           horizontalSpace(10),
           Column(

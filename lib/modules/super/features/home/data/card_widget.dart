@@ -47,16 +47,24 @@ class CategoryCard extends StatelessWidget {
                     padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(
+                        10,
+                      ),
                     ),
-                    child: Icon(icon, size: 1822, color: bgColor),
+                    child: Icon(
+                      icon,
+                      size: 1822,
+                      color: bgColor,
+                    ),
                   ),
                   const SizedBox(width: 8),
 
                   Expanded(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment:
+                          MainAxisAlignment.center,
+                      crossAxisAlignment:
+                          CrossAxisAlignment.start,
                       children: [
                         Text(
                           title,

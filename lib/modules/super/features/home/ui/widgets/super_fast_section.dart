@@ -1,4 +1,5 @@
 import 'package:b2b/core/helpers/spacing.dart';
+import 'package:b2b/core/theme/app_color_scheme_extention.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/sections_fast.dart';
 import 'package:flutter/material.dart';
@@ -9,13 +10,17 @@ class QuickActionsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final ext = Theme.of(
+      context,
+    ).extension<AppColorScheme>()!;
     return Container(
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        gradient: const LinearGradient(
-          colors: [Color(0xFF2F4FA2), Color(0xFF4A7BE5)],
+        gradient: LinearGradient(
+          colors: [cs.primary, cs.secondary],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -23,10 +28,14 @@ class QuickActionsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('إجراءات سريعة', style: TextStyles.font16w700),
+          Text(
+            'إجراءات سريعة',
+            style: TextStyles.font16w700,
+          ),
           verticalSpace(16.h),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment:
+                MainAxisAlignment.spaceBetween,
             children: [
               const Expanded(
                 child: QuickActionItem(
