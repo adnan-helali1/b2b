@@ -3,6 +3,5 @@ class Routes {
   static const String supplierHomeScreen =
       '/supplierhomescreen';
   static const String loginScreen = '/loginscreen';
-  static const String CreateAccount = '/createaccount';
-
+  static const String adminHomeUIScreen = '/adminhomeuiscreen';
 }
