@@ -4,16 +4,10 @@ class AppColors {
   // ------------------------------------------------------------
   // BRAND COLORS (from blue accents in UI)
   // ------------------------------------------------------------
-  static const Color primary = Color(
-    0xFF1E40AF,
-  ); // Deep business blue
+  static const Color primary = Color(0xFF1E3A8A); // Deep business blue
 
-  static const Color primaryDark = Color(
-    0xFF1E3A8A,
-  ); // Darker variant
-  static const Color secondary = Color(
-    0xFF3B82F6,
-  ); // Bright blue accent
+  static const Color primaryDark = Color(0xFF1E3A8A); // Darker variant
+  static const Color secondary = Color(0xFF3B82F6); // Bright blue accent
   static const Color secondaryDark = Color(0xFF2563EB);
   // ------------------------------------------------------------
   // SEMANTIC COLORS (from success, warning, error indicators)
@@ -35,7 +29,7 @@ class AppColors {
   // ------------------------------------------------------------
   static const Color neutral0 = Color(0xFF0F1115);
 
-  static const Color neutral5 = Color(0xFF111317);
+  static const Color neutral5 = Color(0xFF1F2937);
   static const Color neutral10 = Color(0xFF1A1C20);
   static const Color neutral20 = Color(0xFF2A2D33);
   static const Color neutral30 = Color(0xFF3A3E45);
@@ -54,8 +48,7 @@ class AppColors {
 
   static const Color lightSurface = neutral99;
   static const Color lightSurfaceVariant = neutral90;
-  static const Color darkBackground =
-      neutral5; // Matches dark UI screens
+  static const Color darkBackground = neutral5; // Matches dark UI screens
 
   static const Color darkSurface = neutral10;
   static const Color darkSurfaceVariant = neutral20;

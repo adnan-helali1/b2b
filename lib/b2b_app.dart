@@ -30,7 +30,7 @@ class B2bApp extends StatelessWidget {
                 onGenerateRoute: appRouter.generateRoute,
                 theme: lightTheme,
                 darkTheme: darkTheme,
-                themeMode: mode, // 🔥 NOW IT WORKS
+                themeMode: mode,
               );
             },
           ),

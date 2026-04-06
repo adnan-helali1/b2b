@@ -10,7 +10,7 @@ class SupplierLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screens = [
-      const SupplierHomeScreen(),
+      SupplierHomeScreen(),
       const Placeholder(), // Orders
       const Placeholder(), // Profile
     ];
