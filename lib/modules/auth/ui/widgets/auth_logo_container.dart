@@ -23,6 +23,5 @@ class AuthLogoContainer extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

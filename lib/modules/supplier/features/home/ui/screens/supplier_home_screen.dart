@@ -1,5 +1,4 @@
 import 'package:b2b/core/helpers/spacing.dart';
-import 'package:b2b/core/theme/app_color_scheme_extention.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/core/widgets/b2b_app_bar.dart';
 import 'package:b2b/modules/supplier/features/home/ui/widgets/stats_row.dart';
@@ -16,9 +15,6 @@ class SupplierHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final ext = Theme.of(
-      context,
-    ).extension<AppColorScheme>()!;
 
     return Scaffold(
       backgroundColor: cs.surface,
@@ -34,15 +30,11 @@ class SupplierHomeScreen extends StatelessWidget {
           children: [
             Text(
               'منتجاتي',
-              style: TextStyles.font18Bold.copyWith(
-                color: cs.onSurface,
-              ),
+              style: TextStyles.font18Bold.copyWith(color: cs.onSurface),
             ),
             Text(
               'إدارة المنتجات والمخزون',
-              style: TextStyles.font14.copyWith(
-                color: cs.onSurfaceVariant,
-              ),
+              style: TextStyles.font14.copyWith(color: cs.onSurfaceVariant),
             ),
 
             verticalSpace(20),
@@ -61,9 +53,7 @@ class SupplierHomeScreen extends StatelessWidget {
               builder: (context, state) {
                 return Column(
                   children: state.filtered
-                      .map(
-                        (e) => ProductItemCard(product: e),
-                      )
+                      .map((e) => ProductItemCard(product: e))
                       .toList(),
                 );
               },

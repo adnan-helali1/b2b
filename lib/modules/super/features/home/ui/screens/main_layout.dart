@@ -1,6 +1,7 @@
 import 'package:b2b/modules/super/features/home/ui/screens/super_home_screen.dart';
 import 'package:b2b/core/widgets/snakBar/snak_cubit.dart';
 import 'package:b2b/core/widgets/snakBar/super_snak_bar.dart';
+import 'package:b2b/modules/super/features/orders/ui/screens/super_order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,7 @@ class MainLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     final screens = [
       SuperHomeScreen(),
-      Placeholder(), // Orders
+      OrdersScreen(), // Orders
       Placeholder(), // Inventory
       Placeholder(), // Profile
     ];
