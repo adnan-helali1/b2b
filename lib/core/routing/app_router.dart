@@ -27,14 +27,12 @@ class AppRouter {
             child: const SupplierLayout(),
           ),
         );
+      case Routes.createAccountScreen:
+        return MaterialPageRoute(builder: (_) => CreateAccount());
       case Routes.loginScreen:
-        return MaterialPageRoute(
-          builder: (_) => LoginScreen(),
-        );
-         case Routes.adminHomeUIScreen:
-        return MaterialPageRoute(
-          builder: (_) => AdminHomeUiScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => LoginScreen());
+      case Routes.adminHomeUIScreen:
+        return MaterialPageRoute(builder: (_) => AdminHomeUiScreen());
 
       default:
         return MaterialPageRoute(
