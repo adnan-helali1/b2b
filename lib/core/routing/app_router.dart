@@ -1,4 +1,5 @@
 import 'package:b2b/core/routing/routes.dart';
+import 'package:b2b/modules/auth/ui/screens/create_account.dart';
 import 'package:b2b/modules/auth/ui/screens/login_Screen.dart';
 import 'package:b2b/modules/super/features/home/ui/screens/main_layout.dart';
 import 'package:b2b/core/widgets/snakBar/snak_cubit.dart';
@@ -27,6 +28,8 @@ class AppRouter {
         );
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
+         case Routes.CreateAccount:
+        return MaterialPageRoute(builder: (_) => CreateAccount());
 
       default:
         return MaterialPageRoute(
