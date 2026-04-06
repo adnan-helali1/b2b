@@ -1,17 +1,22 @@
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/colors.dart';
 import 'package:b2b/core/theme/textstyles.dart';
+import 'package:b2b/modules/admin/features/home/ui/widgets/admin_home_big_container.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
+import 'package:b2b/modules/admin/features/home/ui/widgets/widget_linechart.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:b2b/core/theme/app_colors.dart';
 
 class AdminHomeUiScreen extends StatelessWidget {
-  const AdminHomeUiScreen({super.key});
-
+  
+  const AdminHomeUiScreen( {super.key});
+  
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
+    
 
     return Scaffold(
       backgroundColor: AppColors.lightSurfaceVariant,
@@ -127,6 +132,33 @@ class AdminHomeUiScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              verticalSpace(50.h),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: BigContainer(children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text('اجمالي المبيعات',style: TextStyles.font16bold,),
+                        horizontalSpace(50.w),
+                        Container(
+                          width: 70,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: AppColors.secondaryDark,
+                             borderRadius: BorderRadius.circular(15),
+                          ),
+                        
+                          child: Text('اخر 6 شهور',style: TextStyle(color: ColorsManegar.white,fontSize: 13, ),textAlign: TextAlign.right,),
+                        ),
+                      ],
+                    ),
+                  ),
+                WidgetLinechart(months: ["يناير","فبراير","مارس","أبريل","مايو","يونيو"])
+                ]),
+              )
             ],
           ),
         ),
