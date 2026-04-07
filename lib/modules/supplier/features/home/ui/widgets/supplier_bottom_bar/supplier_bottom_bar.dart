@@ -10,12 +10,18 @@ class SupplierBottomBar extends StatelessWidget {
     final cs = Theme.of(context).colorScheme;
 
     final items = [
-      Icons.category, // المنتجات
-      Icons.inventory_2, // الطلبات
-      Icons.person, // الملف الشخصي
+      Icons.category,
+      Icons.inventory_2,
+      Icons.receipt_long_outlined,
+      Icons.person,
     ];
 
-    final labels = ['المنتجات', 'الطلبات', 'الملف الشخصي'];
+    final labels = [
+      'المنتجات',
+      'الطلبات',
+      'الفواتير',
+      'العملاء',
+    ];
 
     return BlocBuilder<SupplierBarCubit, SupplierBarState>(
       builder: (context, state) {
