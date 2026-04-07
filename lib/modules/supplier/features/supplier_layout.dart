@@ -2,6 +2,7 @@ import 'package:b2b/core/widgets/b2b_app_bar.dart';
 import 'package:b2b/modules/supplier/features/home/ui/screens/supplier_home_screen.dart';
 import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_bottom_bar/supplier_bar_cubit.dart';
 import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_bottom_bar/supplier_bottom_bar.dart';
+import 'package:b2b/modules/supplier/features/invoice/ui/screens/invoice_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +14,7 @@ class SupplierLayout extends StatelessWidget {
     final screens = [
       SupplierHomeScreen(),
       const Placeholder(),
-      const Placeholder(),
+      InvoicesScreen(),
       const Placeholder(),
     ];
 
