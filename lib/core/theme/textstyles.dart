@@ -31,8 +31,14 @@ class TextStyles {
     fontFamily: 'cairo',
   );
   static final TextStyle font15w700 = TextStyle(
-    fontSize: 15,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w700,
+    fontFamily: 'cairo',
+  );
+  static final TextStyle font16BlackBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
     fontFamily: 'cairo',
   );
   static final TextStyle font12normal = TextStyle(
