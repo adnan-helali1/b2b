@@ -12,6 +12,10 @@ final lightTheme = ThemeData(
     secondary: AppColors.secondary,
     surface: AppColors.lightSurface,
     error: AppColors.error,
+    surfaceContainer: AppColors.blueCard,
+    surfaceContainerHigh: AppColors.greenCard,
+    surfaceContainerLow: AppColors.redCard,
+    surfaceContainerHighest: AppColors.purpleCard,
   ),
 
   scaffoldBackgroundColor: AppColors.lightBackground,

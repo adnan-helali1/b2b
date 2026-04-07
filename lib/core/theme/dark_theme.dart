@@ -12,6 +12,10 @@ final darkTheme = ThemeData(
     secondary: AppColors.secondary,
     surface: AppColors.darkSurface,
     error: AppColors.error,
+    surfaceContainer: AppColors.blueCardDark,
+    surfaceContainerHigh: AppColors.greenCardDark,
+    surfaceContainerLow: AppColors.redCardDark,
+    surfaceContainerHighest: AppColors.purpleCardDark,
   ),
 
   scaffoldBackgroundColor: AppColors.darkBackground,

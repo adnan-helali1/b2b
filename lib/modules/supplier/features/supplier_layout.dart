@@ -1,3 +1,4 @@
+import 'package:b2b/core/widgets/b2b_app_bar.dart';
 import 'package:b2b/modules/supplier/features/home/ui/screens/supplier_home_screen.dart';
 import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_bottom_bar/supplier_bar_cubit.dart';
 import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_bottom_bar/supplier_bottom_bar.dart';
@@ -11,8 +12,9 @@ class SupplierLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     final screens = [
       SupplierHomeScreen(),
-      const Placeholder(), // Orders
-      const Placeholder(), // Profile
+      const Placeholder(),
+      const Placeholder(),
+      const Placeholder(),
     ];
 
     return BlocProvider(
@@ -21,6 +23,11 @@ class SupplierLayout extends StatelessWidget {
           BlocBuilder<SupplierBarCubit, SupplierBarState>(
             builder: (context, state) {
               return Scaffold(
+                appBar: B2bAppBar(
+                  icon: Icons.local_shipping_outlined,
+                  title: 'شركة اللذيذ',
+                  subtitle: 'مورد',
+                ),
                 body: AnimatedSwitcher(
                   duration: const Duration(
                     milliseconds: 250,
