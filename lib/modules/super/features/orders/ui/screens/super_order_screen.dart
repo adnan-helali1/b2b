@@ -3,14 +3,14 @@ import 'package:b2b/modules/super/features/orders/logic/super_order_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class OrdersScreen extends StatefulWidget {
-  OrdersScreen({super.key});
+class SuperOrderScreen extends StatefulWidget {
+  SuperOrderScreen({super.key});
 
   @override
-  State<OrdersScreen> createState() => _OrdersScreenState();
+  State<SuperOrderScreen> createState() => _SuperOrderScreenState();
 }
 
-class _OrdersScreenState extends State<OrdersScreen> {
+class _SuperOrderScreenState extends State<SuperOrderScreen> {
   String? expandedOrderId;
   @override
   Widget build(BuildContext context) {

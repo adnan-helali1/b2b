@@ -14,15 +14,11 @@ class TextsHomeSuper extends StatelessWidget {
         children: [
           Text(
             'Search by name',
-            style: TextStyles.font16w700.copyWith(
-              color: cs.onSurface, // ✅ FIXED
-            ),
+            style: TextStyles.font16w700.copyWith(color: cs.onSurface),
           ),
           Text(
             'See all',
-            style: TextStyles.font15w700.copyWith(
-              color: cs.primary, // ✅ FIXED
-            ),
+            style: TextStyles.font15w700.copyWith(color: cs.primary),
           ),
         ],
       ),

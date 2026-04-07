@@ -4,18 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 🏪 Supplier Card
+
 Widget supplierCard({
+  required BuildContext context,
   required String name,
   required String products,
   required String rating,
 }) {
+  final cs = Theme.of(context).colorScheme;
+
   return Container(
     margin: const EdgeInsets.only(bottom: 10),
     padding: const EdgeInsets.all(14),
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: cs.surface, // بدل Colors.white
       borderRadius: BorderRadius.circular(16),
-      border: Border.all(color: Colors.grey.shade200),
+      border: Border.all(color: cs.outline.withOpacity(0.2)),
     ),
     child: Row(
       children: [
@@ -23,10 +27,10 @@ Widget supplierCard({
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Colors.blue.withOpacity(0.1),
+            color: cs.primary.withOpacity(0.1),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.view_in_ar_sharp, color: Color(0xff1C3B8A)),
+          child: Icon(Icons.view_in_ar_sharp, color: cs.primary),
         ),
         horizontalSpace(12.w),
 
@@ -35,11 +39,14 @@ Widget supplierCard({
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(name, style: TextStyles.font16BlackBold),
-              const SizedBox(height: 4),
+              Text(
+                name,
+                style: TextStyles.font16w700.copyWith(color: cs.onSurface),
+              ),
+              verticalSpace(4.h),
               Text(
                 products,
-                style: TextStyles.font14.copyWith(color: Colors.grey),
+                style: TextStyles.font14.copyWith(color: cs.onSurfaceVariant),
               ),
             ],
           ),
@@ -48,9 +55,12 @@ Widget supplierCard({
         /// Rating
         Row(
           children: [
-            Text(rating),
+            Text(
+              rating,
+              style: TextStyles.font14.copyWith(color: cs.onSurface),
+            ),
             horizontalSpace(4.w),
-            const Icon(Icons.star, color: Colors.orange, size: 18),
+            Icon(Icons.star, color: cs.tertiary, size: 18),
           ],
         ),
       ],

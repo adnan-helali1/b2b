@@ -1,3 +1,4 @@
+import 'package:b2b/core/theme/app_color_scheme_extention.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
@@ -32,4 +33,9 @@ extension StringExtension on String? {
 
 extension ListExtension<T> on List<T>? {
   bool isNullOrEmpty() => this == null || this!.isEmpty;
+}
+
+extension ThemeGetter on BuildContext {
+  ColorScheme get cs => Theme.of(this).colorScheme;
+  AppColorScheme get appColors => Theme.of(this).extension<AppColorScheme>()!;
 }

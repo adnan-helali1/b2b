@@ -17,6 +17,8 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+
     return Container(
       width: 180,
       decoration: BoxDecoration(
@@ -26,16 +28,21 @@ class CategoryCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(12), Text('HERE WILL BE IMAGE'),
+          verticalSpace(12),
+          const Text('HERE WILL BE IMAGE'),
 
-          // 🔹 المحتوى
+          /// Content
           verticalSpace(39),
           Padding(
             padding: const EdgeInsets.all(10),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(icon, size: 18, color: Colors.black54),
+                Icon(
+                  icon,
+                  size: 18,
+                  color: cs.onSurface.withOpacity(0.7), // بدل black54
+                ),
 
                 const SizedBox(width: 6),
 
@@ -44,9 +51,10 @@ class CategoryCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
+                        color: cs.onSurface,
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -55,7 +63,7 @@ class CategoryCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        color: Colors.grey[700],
+                        color: cs.onSurfaceVariant,
                       ),
                     ),
                   ],

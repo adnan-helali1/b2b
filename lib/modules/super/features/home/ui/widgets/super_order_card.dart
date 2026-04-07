@@ -1,19 +1,24 @@
+import 'package:b2b/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget orderCard({
+  required BuildContext context,
   required String id,
   required String price,
   required String date,
   required String status,
   required Color statusColor,
 }) {
+  final cs = Theme.of(context).colorScheme;
+
   return Container(
     margin: const EdgeInsets.only(bottom: 10),
     padding: const EdgeInsets.all(14),
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: cs.surface,
       borderRadius: BorderRadius.circular(16),
-      border: Border.all(color: Colors.grey.shade200),
+      border: Border.all(color: cs.outline.withOpacity(0.2)),
     ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -22,13 +27,19 @@ Widget orderCard({
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(id, style: const TextStyle(fontWeight: FontWeight.bold)),
-            const SizedBox(height: 6),
-            Text(date, style: const TextStyle(color: Colors.grey)),
+            Text(
+              id,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: cs.onSurface,
+              ),
+            ),
+            verticalSpace(6.h),
+            Text(date, style: TextStyle(color: cs.onSurfaceVariant)),
           ],
         ),
 
-        /// Center (Status)
+        /// Status
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           decoration: BoxDecoration(
@@ -37,12 +48,19 @@ Widget orderCard({
           ),
           child: Text(
             status,
-            style: TextStyle(color: statusColor, fontSize: 12),
+            style: TextStyle(
+              color: statusColor,
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
 
-        /// Right (Price)
-        Text(price, style: const TextStyle(fontWeight: FontWeight.bold)),
+        /// Price
+        Text(
+          price,
+          style: TextStyle(fontWeight: FontWeight.bold, color: cs.onSurface),
+        ),
       ],
     ),
   );

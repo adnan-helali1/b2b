@@ -22,19 +22,13 @@ class QuickActionItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            color: cs.onPrimary, // ✅ FIXED
-            size: 26.sp,
-          ),
+          Icon(icon, color: cs.onPrimary, size: 26.sp),
 
           verticalSpace(8.h),
 
           Text(
             label,
-            style: TextStyles.font12normal.copyWith(
-              color: cs.onPrimary, // ✅ FIXED
-            ),
+            style: TextStyles.font12normal.copyWith(color: cs.onPrimary),
           ),
         ],
       ),
