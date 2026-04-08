@@ -1,5 +1,5 @@
 import 'package:b2b/modules/super/features/home/data/data.dart';
-import 'package:b2b/modules/super/features/home/ui/widgets/NOCOLORsuper_category_card.dart';
+import 'package:b2b/modules/super/features/home/ui/widgets/super_category_card.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesGrid extends StatelessWidget {

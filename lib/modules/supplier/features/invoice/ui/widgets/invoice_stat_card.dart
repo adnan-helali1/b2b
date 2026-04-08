@@ -1,5 +1,4 @@
 // lib/modules/invoices/ui/widgets/invoice_stat_card.dart
-import 'package:b2b/core/theme/app_color_scheme_extention.dart';
 import 'package:flutter/material.dart';
 
 class InvoiceStatCard extends StatelessWidget {
@@ -23,9 +22,6 @@ class InvoiceStatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final ext = Theme.of(
-      context,
-    ).extension<AppColorScheme>()!;
 
     return Container(
       padding: const EdgeInsets.all(12),

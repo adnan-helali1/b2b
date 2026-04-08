@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 @immutable
-class AppColorScheme
-    extends ThemeExtension<AppColorScheme> {
+class AppColorScheme extends ThemeExtension<AppColorScheme> {
   final Color success;
   final Color warning;
   final Color info;
@@ -35,25 +34,14 @@ class AppColorScheme
   }
 
   @override
-  AppColorScheme lerp(
-    ThemeExtension<AppColorScheme>? other,
-    double t,
-  ) {
+  AppColorScheme lerp(ThemeExtension<AppColorScheme>? other, double t) {
     if (other is! AppColorScheme) return this;
     return AppColorScheme(
       success: Color.lerp(success, other.success, t)!,
       warning: Color.lerp(warning, other.warning, t)!,
       info: Color.lerp(info, other.info, t)!,
-      cardBackground: Color.lerp(
-        cardBackground,
-        other.cardBackground,
-        t,
-      )!,
-      borderColor: Color.lerp(
-        borderColor,
-        other.borderColor,
-        t,
-      )!,
+      cardBackground: Color.lerp(cardBackground, other.cardBackground, t)!,
+      borderColor: Color.lerp(borderColor, other.borderColor, t)!,
     );
   }
 }

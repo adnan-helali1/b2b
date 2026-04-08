@@ -12,7 +12,7 @@ class MainLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     final screens = [
       SuperHomeScreen(),
-      OrdersScreen(), // Orders
+      SuperOrderScreen(), // Orders
       Placeholder(), // Inventory
       Placeholder(), // Profile
     ];

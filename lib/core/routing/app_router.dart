@@ -3,6 +3,7 @@ import 'package:b2b/modules/auth/ui/screens/create_account.dart';
 import 'package:b2b/modules/auth/ui/screens/login_Screen.dart';
 import 'package:b2b/modules/super/features/home/ui/screens/main_layout.dart';
 import 'package:b2b/core/widgets/snakBar/snak_cubit.dart';
+import 'package:b2b/modules/super/features/orders/ui/screens/super_order_screen.dart';
 import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_bottom_bar/supplier_bar_cubit.dart';
 import 'package:b2b/modules/supplier/features/supplier_layout.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case Routes.adminHomeUIScreen:
         return MaterialPageRoute(builder: (_) => AdminHomeUiScreen());
+      case Routes.superOrderScreen:
+        return MaterialPageRoute(builder: (_) => SuperOrderScreen());
 
       default:
         return MaterialPageRoute(
