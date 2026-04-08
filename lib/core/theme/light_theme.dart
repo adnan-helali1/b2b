@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 final lightTheme = ThemeData(
+  fontFamily: 'cairo',
   useMaterial3: true,
   brightness: Brightness.light,
 

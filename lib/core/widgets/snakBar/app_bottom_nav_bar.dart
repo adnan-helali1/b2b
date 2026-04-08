@@ -35,11 +35,11 @@ class AppBottomNavBar extends StatelessWidget {
     return BlocBuilder<BottomNavCubit, BottomNavState>(
       builder: (context, state) {
         return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          // margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 10),
           decoration: BoxDecoration(
             color: cs.surface,
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(6),
             boxShadow: [BoxShadow(color: cs.shadow, blurRadius: 5)],
           ),
           child: Row(
@@ -60,12 +60,12 @@ class AppBottomNavBar extends StatelessWidget {
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 250),
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 14,
-                          vertical: 8,
+                          horizontal: 7,
+                          vertical: 4,
                         ),
                         decoration: BoxDecoration(
                           color: isSelected ? cs.primary : cs.surface,
-                          borderRadius: BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -73,9 +73,10 @@ class AppBottomNavBar extends StatelessWidget {
                             Stack(
                               clipBehavior: Clip.none,
                               children: [
-                                icons[index],
-
-                                /// 🔴 Badge
+                                Icon(
+                                  icons[index].icon,
+                                  color: isSelected ? cs.surface : cs.primary,
+                                ),
                                 if (index == 1 && state.ordersCount > 0)
                                   Positioned(
                                     right: -6,
@@ -101,7 +102,9 @@ class AppBottomNavBar extends StatelessWidget {
                             Text(
                               labels[index],
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'cairo',
                                 color: isSelected ? cs.surface : cs.primary,
                               ),
                             ),

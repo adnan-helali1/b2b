@@ -1,5 +1,5 @@
 import 'package:b2b/core/theme/app_color_scheme_extention.dart';
-import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_stats_card.dart';
+import 'package:b2b/core/widgets/app_Stats_card.dart';
 import 'package:flutter/material.dart';
 
 class StatsRow extends StatelessWidget {
@@ -8,20 +8,22 @@ class StatsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final ext = Theme.of(
-      context,
-    ).extension<AppColorScheme>()!;
+    final ext = Theme.of(context).extension<AppColorScheme>()!;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        SupplierStatsCard(
+        AppStatsCard(
+          backgroundColor: cs.surface,
+          direction: Axis.horizontal,
           icon: Icons.view_in_ar,
           iconBgColor: cs.primary.withOpacity(0.10),
           iconColor: cs.primary,
           value: '5',
           label: 'إجمالي المنتجات',
         ),
-        SupplierStatsCard(
+        AppStatsCard(
+          backgroundColor: cs.surface,
+          direction: Axis.horizontal,
           icon: Icons.trending_up,
           iconBgColor: ext.success.withOpacity(0.12),
           iconColor: ext.success,
