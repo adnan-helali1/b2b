@@ -4,7 +4,6 @@ import 'package:b2b/modules/auth/ui/screens/login_Screen.dart';
 import 'package:b2b/modules/super/features/main_layout.dart';
 import 'package:b2b/core/widgets/snakBar/app_buttom_nav_cubit.dart';
 import 'package:b2b/modules/super/features/orders/ui/screens/super_order_screen.dart';
-import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_bottom_bar/supplier_bar_cubit.dart';
 import 'package:b2b/modules/supplier/features/supplier_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

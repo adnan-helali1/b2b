@@ -2,7 +2,6 @@ import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/core/widgets/app_search_filed.dart';
 import 'package:b2b/modules/supplier/features/home/ui/widgets/stats_row.dart';
-import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_search_bar.dart';
 import 'package:b2b/modules/supplier/features/products/logic/products_cubit.dart';
 import 'package:b2b/modules/supplier/features/products/ui/widgets/category_filter_bar.dart';
 import 'package:b2b/modules/supplier/features/products/ui/widgets/product_item_card.dart';
