@@ -1,21 +1,36 @@
-import 'package:b2b/core/widgets/snakBar/snak_cubit.dart';
+import 'package:b2b/core/widgets/snakBar/app_buttom_nav_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomBottomNavBar extends StatelessWidget {
-  const CustomBottomNavBar({super.key});
+class AppBottomNavBar extends StatelessWidget {
+  final String label1;
+  final String label2;
+  final String label3;
+  final String label4;
+  final Icon icon1;
+  final Icon icon2;
+  final Icon icon3;
+  final Icon icon4;
+  late final List<Icon> icons = [icon1, icon2, icon3, icon4];
+
+  AppBottomNavBar({
+    super.key,
+    required this.label1,
+    required this.label2,
+    required this.label3,
+    required this.label4,
+    required this.icon1,
+    required this.icon2,
+    required this.icon3,
+    required this.icon4,
+  });
 
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final items = [
-      Icons.home_rounded,
-      Icons.receipt_long,
-      Icons.inventory_2,
-      Icons.person,
-    ];
+    final items = icons;
 
-    final labels = ['الرئيسية', 'الطلبات', 'المخزون', 'الحساب'];
+    final labels = [label1, label2, label3, label4];
 
     return BlocBuilder<BottomNavCubit, BottomNavState>(
       builder: (context, state) {
@@ -58,10 +73,7 @@ class CustomBottomNavBar extends StatelessWidget {
                             Stack(
                               clipBehavior: Clip.none,
                               children: [
-                                Icon(
-                                  items[index],
-                                  color: isSelected ? cs.surface : cs.primary,
-                                ),
+                                icons[index],
 
                                 /// 🔴 Badge
                                 if (index == 1 && state.ordersCount > 0)

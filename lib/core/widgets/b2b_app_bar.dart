@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class B2bAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
+class B2bAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String subtitle;
   final IconData icon;
@@ -19,8 +18,7 @@ class B2bAppBar extends StatelessWidget
   });
 
   @override
-  Size get preferredSize =>
-      const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +39,7 @@ class B2bAppBar extends StatelessWidget
               color: cs.primary,
               shape: BoxShape.circle,
             ),
-            child: Icon(
-              icon,
-              color: cs.onPrimary,
-              size: 20,
-            ),
+            child: Icon(icon, color: cs.onPrimary, size: 20),
           ),
           horizontalSpace(10),
           Column(
@@ -53,15 +47,11 @@ class B2bAppBar extends StatelessWidget
             children: [
               Text(
                 title,
-                style: TextStyles.font18Bold.copyWith(
-                  color: cs.onSurface,
-                ),
+                style: TextStyles.font18Bold.copyWith(color: cs.onSurface),
               ),
               Text(
                 subtitle,
-                style: TextStyles.font14.copyWith(
-                  color: cs.onSurfaceVariant,
-                ),
+                style: TextStyles.font14.copyWith(color: cs.onSurfaceVariant),
               ),
             ],
           ),
@@ -84,7 +74,7 @@ class B2bAppBar extends StatelessWidget
           icon: Icon(Icons.logout, color: cs.error),
           onPressed: () {},
         ),
-        const SizedBox(width: 8),
+        horizontalSpace(8.w),
       ],
     );
   }

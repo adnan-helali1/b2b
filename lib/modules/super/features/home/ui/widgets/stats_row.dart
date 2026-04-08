@@ -30,7 +30,7 @@ class StatsRow extends StatelessWidget {
           child: StatCard(
             icon: Icons.assignment_turned_in_outlined,
             iconColor: cs.secondary,
-            bgColor: cs.secondary.withOpacity(0.10), // ✅ FIXED
+            bgColor: cs.secondary.withOpacity(0.10),
             number: "701",
             label: "المنتجات",
           ),
