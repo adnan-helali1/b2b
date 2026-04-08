@@ -26,27 +26,27 @@ class _InvoicesBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
 
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Container(
-            color: cs.surface,
-            child: const InvoicesStatsSection(),
+    return SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Container(
+              color: cs.surface,
+              child: const InvoicesStatsSection(),
+            ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-            ).copyWith(bottom: 8),
-            child: const InvoiceFilterBar(),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+              ).copyWith(bottom: 8),
+              child: const InvoiceFilterBar(),
+            ),
           ),
-        ),
-        const InvoiceList(),
-        const SliverToBoxAdapter(
-          child: SizedBox(height: 16),
-        ),
-      ],
+          const InvoiceList(),
+          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+        ],
+      ),
     );
   }
 }

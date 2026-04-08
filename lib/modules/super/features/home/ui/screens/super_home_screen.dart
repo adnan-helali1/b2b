@@ -2,7 +2,7 @@ import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/widgets/b2b_app_bar.dart';
 import 'package:b2b/modules/super/features/home/ui/screens/super_home_screen_section2.dart';
 import 'package:b2b/modules/super/features/home/ui/screens/super_Categries_grid.dart';
-import 'package:b2b/modules/super/features/home/ui/widgets/search_field_home_super.dart';
+import 'package:b2b/core/widgets/app_search_filed.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/stats_row.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/super_fast_section.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/texts_home_super.dart';
@@ -23,7 +23,7 @@ class SuperHomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           verticalSpace(20),
-          const SearchFieldHomeSuper(),
+          const AppSearchFiled(hintText: 'ابحث عن منتج، فئة أو مورد...'),
           Padding(padding: const EdgeInsets.all(16), child: const StatsRow()),
           const QuickActionsSection(),
           TextsHomeSuper(),
