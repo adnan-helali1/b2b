@@ -1,6 +1,9 @@
+import 'package:b2b/core/helpers/extensions.dart';
+import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/modules/super/features/orders/logic/super_order_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget superOrderTab(
   BuildContext context,
@@ -9,20 +12,23 @@ Widget superOrderTab(
   OrdersState state,
 ) {
   final isSelected = state.filter == filter;
+  final cs = context.cs;
 
   return GestureDetector(
     onTap: () => context.read<OrdersCubit>().changeFilter(filter),
     child: AnimatedContainer(
       duration: const Duration(milliseconds: 250),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       decoration: BoxDecoration(
-        color: isSelected ? const Color(0xFF2D4B9A) : Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.shade300),
+        color: isSelected ? cs.primary : cs.surface,
+        borderRadius: BorderRadius.circular(12.r),
+        border: Border.all(color: context.appColors.borderColor),
       ),
       child: Text(
         text,
-        style: TextStyle(color: isSelected ? Colors.white : Colors.black),
+        style: TextStyles.font12w600.copyWith(
+          color: isSelected ? cs.onPrimary : cs.onSurface,
+        ),
       ),
     ),
   );
