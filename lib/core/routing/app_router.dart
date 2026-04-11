@@ -4,10 +4,14 @@ import 'package:b2b/modules/auth/ui/screens/login_Screen.dart';
 import 'package:b2b/modules/super/features/main_layout.dart';
 import 'package:b2b/core/widgets/snakBar/app_buttom_nav_cubit.dart';
 import 'package:b2b/modules/super/features/orders/ui/screens/super_order_screen.dart';
+import 'package:b2b/modules/super/features/account/ui/screens/super_account_screen.dart';
+import 'package:b2b/modules/super/features/pos/ui/screens/super_pos_screen.dart';
+import 'package:b2b/modules/super/features/pos/ui/screens/super_pos_cart_screen.dart';
 import 'package:b2b/modules/supplier/features/supplier_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:b2b/modules/admin/features/home/ui/screen/admin_home_ui_screen.dart';
+import 'package:b2b/modules/super/features/invoice/ui/screens/super_invoice_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -35,6 +39,14 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => AdminHomeUiScreen());
       case Routes.superOrderScreen:
         return MaterialPageRoute(builder: (_) => SuperOrderScreen());
+      case Routes.superInvoiceScreen:
+        return MaterialPageRoute(builder: (_) => const SuperInvoiceScreen());
+      case Routes.superPosScreen:
+        return MaterialPageRoute(builder: (_) => const SuperPosScreen());
+      case Routes.superPosCartScreen:
+        return MaterialPageRoute(builder: (_) => const SuperPosCartScreen());
+      case Routes.superAccountScreen:
+        return MaterialPageRoute(builder: (_) => const SuperAccountScreen());
 
       default:
         return MaterialPageRoute(

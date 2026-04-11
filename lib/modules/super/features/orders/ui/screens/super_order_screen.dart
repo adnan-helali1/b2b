@@ -26,45 +26,41 @@ class _SuperOrderScreenState extends State<SuperOrderScreen> {
           subtitle: 'سوبر ماركت',
           icon: Icons.shopping_cart_outlined,
         ),
-        backgroundColor: Colors.grey[100],
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              // 🔹 Title + Button
-              SuperOrderRow(),
-
-              verticalSpace(16.h),
-
-              /// 🔹 Tabs
-              BlocBuilder<OrdersCubit, OrdersState>(
-                builder: (context, state) {
-                  return Row(
-                    children: [
-                      superOrderTab(context, 'الكل', OrdersFilter.all, state),
-                      const SizedBox(width: 8),
-                      superOrderTab(
-                        context,
-                        'قيد التنفيذ',
-                        OrdersFilter.pending,
-                        state,
-                      ),
-                      const SizedBox(width: 8),
-                      superOrderTab(
-                        context,
-                        'مكتملة',
-                        OrdersFilter.delivered,
-                        state,
-                      ),
-                    ],
-                  );
-                },
-              ),
-              verticalSpace(16.h),
-
-              /// 🔹 Orders List
-              SuperOrderBlocBuilder(),
-            ],
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(16.r),
+            child: Column(
+              children: [
+                const SuperOrderRow(),
+                verticalSpace(16.h),
+                BlocBuilder<OrdersCubit, OrdersState>(
+                  builder: (context, state) {
+                    return Row(
+                      children: [
+                        superOrderTab(context, 'الكل', OrdersFilter.all, state),
+                        const SizedBox(width: 8),
+                        superOrderTab(
+                          context,
+                          'قيد التنفيذ',
+                          OrdersFilter.pending,
+                          state,
+                        ),
+                        const SizedBox(width: 8),
+                        superOrderTab(
+                          context,
+                          'مكتملة',
+                          OrdersFilter.delivered,
+                          state,
+                        ),
+                      ],
+                    );
+                  },
+                ),
+                verticalSpace(16.h),
+                const SuperOrderBlocBuilder(),
+              ],
+            ),
           ),
         ),
       ),

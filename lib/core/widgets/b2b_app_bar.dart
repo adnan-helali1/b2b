@@ -9,12 +9,18 @@ class B2bAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String subtitle;
   final IconData icon;
+  final IconData? actionIcon;
+  final VoidCallback? onActionPressed;
+  final Color? actionColor;
 
   const B2bAppBar({
     super.key,
     required this.title,
     required this.subtitle,
     required this.icon,
+    this.actionIcon,
+    this.onActionPressed,
+    this.actionColor,
   });
 
   @override
@@ -59,6 +65,11 @@ class B2bAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
 
       actions: [
+        if (actionIcon != null)
+          IconButton(
+            icon: Icon(actionIcon, color: actionColor ?? cs.onSurface),
+            onPressed: onActionPressed,
+          ),
         IconButton(
           icon: Icon(
             Theme.of(context).brightness == Brightness.light

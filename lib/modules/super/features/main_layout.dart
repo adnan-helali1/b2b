@@ -1,7 +1,10 @@
 import 'package:b2b/modules/super/features/home/ui/screens/super_home_screen.dart';
 import 'package:b2b/core/widgets/snakBar/app_buttom_nav_cubit.dart';
 import 'package:b2b/core/widgets/snakBar/app_bottom_nav_bar.dart';
+import 'package:b2b/modules/super/features/invoice/ui/screens/super_invoice_screen.dart';
 import 'package:b2b/modules/super/features/orders/ui/screens/super_order_screen.dart';
+import 'package:b2b/modules/super/features/pos/ui/screens/super_pos_screen.dart';
+import 'package:b2b/modules/super/features/store/ui/screens/super_store_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,8 +16,9 @@ class MainLayout extends StatelessWidget {
     final screens = [
       SuperHomeScreen(),
       SuperOrderScreen(), // Orders
-      Placeholder(), // Inventory
-      Placeholder(), // Profile
+      const SuperStoreScreen(), // Inventory
+      SuperInvoiceScreen(), // Invoices
+      const SuperPosScreen(), // POS
     ];
 
     return BlocBuilder<BottomNavCubit, BottomNavState>(
@@ -25,14 +29,17 @@ class MainLayout extends StatelessWidget {
             child: screens[state.currentIndex],
           ),
           bottomNavigationBar: AppBottomNavBar(
-            label1: 'الرئيسية',
-            label2: 'الطلبات',
-            label3: 'المخزون',
-            label4: 'الحساب',
-            icon1: Icon(Icons.home_rounded),
-            icon2: Icon(Icons.receipt_long),
-            icon3: Icon(Icons.inventory_2),
-            icon4: Icon(Icons.person),
+            items: const [
+              AppBottomNavItem(label: 'الرئيسية', icon: Icons.home_rounded),
+              AppBottomNavItem(label: 'الطلبات', icon: Icons.receipt_long),
+              AppBottomNavItem(label: 'المخزون', icon: Icons.inventory_2),
+              AppBottomNavItem(
+                label: 'الفواتير',
+                icon: Icons.receipt_long_outlined,
+              ),
+              AppBottomNavItem(label: 'نقطة البيع', icon: Icons.attach_money),
+            ],
+            badgeIndex: 1,
           ),
         );
       },
