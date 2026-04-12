@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class SuperInvoiceModel {
   final String id;
   final String partyName;

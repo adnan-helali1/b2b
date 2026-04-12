@@ -4,7 +4,6 @@ import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/core/widgets/b2b_app_bar.dart';
 import 'package:b2b/core/routing/routes.dart';
 import 'package:b2b/modules/super/features/pos/data/super_pos_data.dart';
-import 'package:b2b/modules/super/features/pos/ui/widgets/super_pos_bottom_nav.dart';
 import 'package:b2b/modules/super/features/pos/ui/widgets/super_pos_product_card.dart';
 import 'package:b2b/modules/super/features/pos/ui/widgets/super_pos_search_field.dart';
 import 'package:flutter/material.dart';
@@ -34,10 +33,7 @@ class _SuperPosScreenState extends State<SuperPosScreen> {
         onActionPressed: () =>
             Navigator.of(context).pushNamed(Routes.superAccountScreen),
       ),
-      bottomNavigationBar: SuperPosBottomNav(
-        currentIndex: currentIndex,
-        onTap: (index) => setState(() => currentIndex = index),
-      ),
+
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(16.r),
