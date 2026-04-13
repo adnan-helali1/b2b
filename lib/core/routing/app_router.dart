@@ -7,6 +7,7 @@ import 'package:b2b/modules/super/features/orders/ui/screens/super_order_screen.
 import 'package:b2b/modules/auth/features/account/ui/screens/super_account_screen.dart';
 import 'package:b2b/modules/super/features/pos/ui/screens/super_pos_screen.dart';
 import 'package:b2b/modules/super/features/pos/ui/screens/super_pos_cart_screen.dart';
+import 'package:b2b/modules/super/features/store/ui/screens/super_store_screen.dart';
 import 'package:b2b/modules/supplier/features/supplier_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,6 +34,8 @@ class AppRouter {
         );
       case Routes.createAccountScreen:
         return MaterialPageRoute(builder: (_) => CreateAccount());
+      case Routes.superStoreScreen:
+        return MaterialPageRoute(builder: (_) => SuperStoreScreen());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case Routes.adminHomeUIScreen:

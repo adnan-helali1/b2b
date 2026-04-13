@@ -9,4 +9,5 @@ class Routes {
   static const String superPosScreen = '/superposscreen';
   static const String superPosCartScreen = '/superposcartscreen';
   static const String superAccountScreen = '/superaccountscreen';
+  static const String superStoreScreen = '/superstorescreen';
 }

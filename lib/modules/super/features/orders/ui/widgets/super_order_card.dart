@@ -2,6 +2,7 @@ import 'package:b2b/core/helpers/extensions.dart';
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/modules/super/features/orders/data/super_order_model.dart';
+import 'package:b2b/modules/super/features/orders/ui/widgets/super_order_ontap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -68,6 +69,7 @@ class SuperOrderCard extends StatelessWidget {
                           color: cs.onSurface,
                         ),
                       ),
+
                       verticalSpace(4.h),
                       Text(
                         order.supplier,
@@ -85,7 +87,22 @@ class SuperOrderCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                SuperOrderStatusBadge(status: order.status),
+                Column(
+                  children: [
+                    IconButton(
+                      icon: isExpanded
+                          ? Icon(Icons.expand_more, color: cs.primary)
+                          : Icon(
+                              Icons.keyboard_arrow_right_outlined,
+                              color: cs.primary,
+                            ),
+                      onPressed: onTap,
+                      padding: EdgeInsets.zero,
+                    ),
+
+                    SuperOrderStatusBadge(status: order.status),
+                  ],
+                ),
               ],
             ),
             verticalSpace(12.h),
@@ -117,23 +134,7 @@ class SuperOrderCard extends StatelessWidget {
                 ),
               ],
             ),
-            if (isExpanded) ...[
-              verticalSpace(10.h),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(12.r),
-                decoration: BoxDecoration(
-                  color: cs.surfaceContainerHighest.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: Text(
-                  'تفاصيل إضافية عن الطلب، عنوان الشحن، وطريقة الدفع تظهر هنا عند التوسيع.',
-                  style: TextStyles.font12normal.copyWith(
-                    color: cs.onSurfaceVariant,
-                  ),
-                ),
-              ),
-            ],
+            if (isExpanded) ...[verticalSpace(10.h), SuperOrderOntap()],
           ],
         ),
       ),

@@ -1,4 +1,6 @@
+import 'package:b2b/core/helpers/extensions.dart';
 import 'package:b2b/core/helpers/spacing.dart';
+import 'package:b2b/core/routing/routes.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/modules/super/features/home/ui/widgets/sections_fast.dart';
 import 'package:flutter/material.dart';
@@ -40,24 +42,27 @@ class QuickActionsSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Expanded(
+              Expanded(
                 child: QuickActionItem(
                   icon: Icons.inventory_2_outlined,
                   label: 'المخزون',
+                  onTap: () => context.pushNamed(Routes.superStoreScreen),
                 ),
               ),
               horizontalSpace(10.w),
-              const Expanded(
+              Expanded(
                 child: QuickActionItem(
                   icon: Icons.receipt_long_outlined,
                   label: 'طلباتي',
+                  onTap: () => context.pushNamed(Routes.superOrderScreen),
                 ),
               ),
               horizontalSpace(10.w),
-              const Expanded(
+              Expanded(
                 child: QuickActionItem(
                   icon: Icons.add_box_outlined,
                   label: 'طلب جديد',
+                  onTap: () => context.pushNamed(Routes.superOrderScreen),
                 ),
               ),
             ],
