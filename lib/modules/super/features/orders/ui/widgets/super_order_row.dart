@@ -1,5 +1,6 @@
 import 'package:b2b/core/helpers/extensions.dart';
 import 'package:b2b/core/theme/textstyles.dart';
+import 'package:b2b/core/routing/routes.dart';
 import 'package:b2b/core/widgets/super_header_on_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +20,7 @@ class SuperOrderRow extends StatelessWidget {
           smallLabel: 'إدارة ومتابعة الطلبات',
         ),
         FilledButton.icon(
-          onPressed: () {},
+          onPressed: () => context.pushNamed(Routes.superNewOrderScreen),
           style: FilledButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
             shape: RoundedRectangleBorder(

@@ -7,8 +7,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SuperPosProductCard extends StatelessWidget {
   final SuperPosProduct product;
+  final int? cartQuantity;
+  final VoidCallback? onAdd;
 
-  const SuperPosProductCard({super.key, required this.product});
+  const SuperPosProductCard({
+    super.key,
+    required this.product,
+    this.cartQuantity,
+    this.onAdd,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,21 +47,44 @@ class SuperPosProductCard extends StatelessWidget {
                 Positioned(
                   right: 8,
                   top: 8,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 9.w,
-                      vertical: 4.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.70),
-                      borderRadius: BorderRadius.circular(999.r),
-                    ),
-                    child: Text(
-                      product.stockLabel,
-                      style: TextStyles.font12w600.copyWith(
-                        color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      if (cartQuantity != null && cartQuantity! > 0)
+                        Container(
+                          margin: EdgeInsets.only(bottom: 6.h),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 9.w,
+                            vertical: 4.h,
+                          ),
+                          decoration: BoxDecoration(
+                            color: cs.primary,
+                            borderRadius: BorderRadius.circular(999.r),
+                          ),
+                          child: Text(
+                            'في السلة',
+                            style: TextStyles.font12w600.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 9.w,
+                          vertical: 4.h,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.70),
+                          borderRadius: BorderRadius.circular(999.r),
+                        ),
+                        child: Text(
+                          product.stockLabel,
+                          style: TextStyles.font12w600.copyWith(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ],
@@ -104,7 +134,7 @@ class SuperPosProductCard extends StatelessWidget {
                       ),
                       horizontalSpace(8.w),
                       FilledButton(
-                        onPressed: () {},
+                        onPressed: onAdd,
                         style: FilledButton.styleFrom(
                           padding: EdgeInsets.symmetric(
                             horizontal: 10.w,

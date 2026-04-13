@@ -1,7 +1,7 @@
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/core/widgets/app_search_filed.dart';
-import 'package:b2b/modules/supplier/features/home/ui/widgets/stats_row.dart';
+import 'package:b2b/core/widgets/app_stats_row.dart';
 import 'package:b2b/modules/supplier/features/products/logic/products_cubit.dart';
 import 'package:b2b/modules/supplier/features/products/ui/widgets/category_filter_bar.dart';
 import 'package:b2b/modules/supplier/features/products/ui/widgets/product_item_card.dart';
@@ -32,7 +32,26 @@ class SupplierHomeScreen extends StatelessWidget {
               ),
 
               verticalSpace(20),
-              StatsRow(),
+              AppStatsRow(
+                items: const [
+                  AppStatsRowItem(
+                    icon: Icons.view_in_ar,
+                    iconBgColor: Color(0x1A1E4DD8),
+                    iconColor: Color(0xFF1E4DD8),
+                    value: '5',
+                    label: 'إجمالي المنتجات',
+                    direction: Axis.horizontal,
+                  ),
+                  AppStatsRowItem(
+                    icon: Icons.trending_up,
+                    iconBgColor: Color(0x1F2E7D32),
+                    iconColor: Color(0xFF2E7D32),
+                    value: '60k',
+                    label: 'إجمالي المبيعات',
+                    direction: Axis.horizontal,
+                  ),
+                ],
+              ),
 
               verticalSpace(20),
               AppSearchFiled(showAddButton: true, hintText: 'ابحث عن منتج...'),

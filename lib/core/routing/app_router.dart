@@ -4,6 +4,7 @@ import 'package:b2b/modules/auth/features/login/ui/screens/login_Screen.dart';
 import 'package:b2b/modules/super/features/main_layout.dart';
 import 'package:b2b/core/widgets/snakBar/app_buttom_nav_cubit.dart';
 import 'package:b2b/modules/super/features/orders/ui/screens/super_order_screen.dart';
+import 'package:b2b/modules/super/features/orders/ui/screens/super_new_order_screen.dart';
 import 'package:b2b/modules/auth/features/account/ui/screens/super_account_screen.dart';
 import 'package:b2b/modules/super/features/pos/ui/screens/super_pos_screen.dart';
 import 'package:b2b/modules/super/features/pos/ui/screens/super_pos_cart_screen.dart';
@@ -42,6 +43,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => AdminHomeUiScreen());
       case Routes.superOrderScreen:
         return MaterialPageRoute(builder: (_) => SuperOrderScreen());
+      case Routes.superNewOrderScreen:
+        return MaterialPageRoute(builder: (_) => const SuperNewOrderScreen());
       case Routes.superInvoiceScreen:
         return MaterialPageRoute(builder: (_) => const SuperInvoiceScreen());
       case Routes.superPosScreen:
