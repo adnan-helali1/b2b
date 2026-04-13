@@ -1,10 +1,10 @@
 import 'package:b2b/core/routing/routes.dart';
-import 'package:b2b/modules/auth/ui/screens/create_account.dart';
-import 'package:b2b/modules/auth/ui/screens/login_Screen.dart';
+import 'package:b2b/modules/auth/features/login/ui/screens/create_account.dart';
+import 'package:b2b/modules/auth/features/login/ui/screens/login_Screen.dart';
 import 'package:b2b/modules/super/features/main_layout.dart';
 import 'package:b2b/core/widgets/snakBar/app_buttom_nav_cubit.dart';
 import 'package:b2b/modules/super/features/orders/ui/screens/super_order_screen.dart';
-import 'package:b2b/modules/super/features/account/ui/screens/super_account_screen.dart';
+import 'package:b2b/modules/auth/features/account/ui/screens/super_account_screen.dart';
 import 'package:b2b/modules/super/features/pos/ui/screens/super_pos_screen.dart';
 import 'package:b2b/modules/super/features/pos/ui/screens/super_pos_cart_screen.dart';
 import 'package:b2b/modules/supplier/features/supplier_layout.dart';

@@ -1,7 +1,7 @@
 import 'package:b2b/core/helpers/extensions.dart';
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/textstyles.dart';
-import 'package:b2b/modules/super/features/account/data/super_account_data.dart';
+import 'package:b2b/modules/auth/features/account/data/super_account_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -2,11 +2,11 @@ import 'package:b2b/core/helpers/extensions.dart';
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/core/widgets/b2b_app_bar.dart';
-import 'package:b2b/modules/super/features/account/ui/widgets/super_account_action_grid.dart';
-import 'package:b2b/modules/super/features/account/ui/widgets/super_account_header_card.dart';
-import 'package:b2b/modules/super/features/account/ui/widgets/super_account_info_section.dart';
-import 'package:b2b/modules/super/features/account/ui/widgets/super_account_settings_section.dart';
-import 'package:b2b/modules/super/features/account/ui/widgets/super_account_stat_card.dart';
+import 'package:b2b/modules/auth/features/account/ui/widgets/super_account_action_grid.dart';
+import 'package:b2b/modules/auth/features/account/ui/widgets/super_account_header_card.dart';
+import 'package:b2b/modules/auth/features/account/ui/widgets/super_account_info_section.dart';
+import 'package:b2b/modules/auth/features/account/ui/widgets/super_account_settings_section.dart';
+import 'package:b2b/modules/auth/features/account/ui/widgets/super_account_stat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
