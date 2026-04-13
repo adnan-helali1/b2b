@@ -90,6 +90,7 @@ class SuperPosProductCard extends StatelessWidget {
                   const Spacer(),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Flexible(
@@ -115,6 +116,7 @@ class SuperPosProductCard extends StatelessWidget {
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Icon(Icons.add, size: 16.sp),
                             horizontalSpace(4.w),
