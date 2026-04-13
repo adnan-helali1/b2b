@@ -1,6 +1,7 @@
 import 'package:b2b/core/helpers/extensions.dart';
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/textstyles.dart';
+import 'package:b2b/core/widgets/super_header_on_screen.dart';
 import 'package:b2b/modules/super/features/invoice/data/super_invoice_model.dart';
 import 'package:b2b/modules/super/features/invoice/logic/cubit/super_invoice_cubit.dart';
 import 'package:b2b/modules/super/features/invoice/logic/cubit/super_invoice_state.dart';
@@ -22,18 +23,9 @@ class SuperInvoiceStatsSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'الفواتير',
-                style: TextStyles.font22bold.copyWith(
-                  color: context.cs.onSurface,
-                ),
-              ),
-              verticalSpace(4.h),
-              Text(
-                'إدارة فواتير المبيعات والمشتريات',
-                style: TextStyles.font14.copyWith(
-                  color: context.cs.onSurfaceVariant,
-                ),
+              SuperHeaderOnScreen(
+                bigLabel: 'الفواتير',
+                smallLabel: 'إدارة فواتير المبيعات والمشتريات',
               ),
               verticalSpace(16.h),
               GridView.count(
