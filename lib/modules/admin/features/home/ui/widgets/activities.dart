@@ -22,29 +22,29 @@ import 'package:flutter/material.dart';
         final item = activity[index];
 
         return Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
                 Container(
-                  width: 30,
-                  height: 30,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
-                    color: item['colorIcon'],
+                    color: item['colorIcon']??Colors.green,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Icon(item['Icon'],),
+                  child: Icon(item['Icon']??Icons.error,),
                 ),
                 horizontalSpace(15),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      item['activityname'],
+                      item['activityname']??'err',
                       style: TextStyles.font14,
                     ),
                     Text(
-                      item['discriptoin'],
+                      item['discriptoin']??'err',
                       style: TextStyles.font12normal,
                     ),
                   ],
@@ -53,11 +53,11 @@ import 'package:flutter/material.dart';
                 Column(
                   children: [
                     Text(
-                      item['prise'],
-                      style: TextStyles.font14,
+                      item['prise']??'200',
+                      style: TextStyles.font15w700,
                     ),
                     Text(
-                      item['time'],
+                      item['time']??'23h',
                       style: TextStyles.font12normal,
                     ),
                   ],

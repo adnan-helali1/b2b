@@ -6,13 +6,13 @@ import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
  
 
 
-class BarChartOnly extends StatelessWidget {
+class Numberofrequests extends StatelessWidget {
   final List<double> data;
   final List<String> labels;
   final double maxY;
   final int divisions;
 
-  const BarChartOnly({
+  const Numberofrequests({
     super.key,
     required this.data,
     required this.labels,

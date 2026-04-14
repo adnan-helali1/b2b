@@ -5,4 +5,5 @@ class Routes {
   static const String adminHomeUIScreen = '/adminhomeuiscreen';
   static const String createAccountScreen = '/createaccountscreen';
   static const String superOrderScreen = '/superorderscreen';
+   static const String adminUiUserScreen = '/adminuiuserscreen';
 }

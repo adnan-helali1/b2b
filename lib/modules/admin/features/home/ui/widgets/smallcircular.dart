@@ -15,8 +15,9 @@ import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
   });
   @override
    Widget build(BuildContext context){
-    return Column(mainAxisAlignment: MainAxisAlignment.start,
-
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
          
@@ -26,11 +27,11 @@ import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
               backgroundColor: colorcircle[0],
               
             ),
-            horizontalSpace(20),
+            horizontalSpace(15),
             Text(textnear[0],style: TextStyles.font14,)
           ],
         ),
-        verticalSpace(20),
+        verticalSpace(15),
          Row(
           children: [
             CircleAvatar(
@@ -42,7 +43,7 @@ import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
             Text(textnear[1],style: TextStyles.font14,)
           ],
         ),
-        verticalSpace(20),
+        verticalSpace(15),
          Row(
           children: [
             CircleAvatar(

@@ -1,9 +1,9 @@
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/colors.dart';
 import 'package:b2b/core/theme/textstyles.dart';
-import 'package:b2b/core/widgets/snakBar/app_bottom_nav_bar.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/activities.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/admin_home_big_container.dart';
+import 'package:b2b/modules/admin/features/home/ui/widgets/appbar_first_container.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/distribution_of_users.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/numberofrequests.dart';
@@ -11,7 +11,8 @@ import 'package:b2b/modules/admin/features/home/ui/widgets/smallcircular.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/total_sales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:b2b/core/theme/app_colors.dart';  
+import 'package:b2b/core/theme/app_colors.dart';
+import 'package:b2b/core/widgets/snakBar/app_bottom_nav_bar.dart';
 
 class AdminHomeUiScreen extends StatelessWidget {
   const AdminHomeUiScreen({super.key});
@@ -19,227 +20,212 @@ class AdminHomeUiScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-
+    //final mn= Theme.of(context). extension<AppColors>()!;
     return Scaffold(
-      backgroundColor: AppColors.lightSurfaceVariant,
-      body:  ListView(children: [
+      
+      backgroundColor:AppColors.lightBackground,
+
+      //  7awli t7oti listview badal singlechildscrollview w est3mli shrinkwrap: true
+      body: ListView(
+        shrinkWrap: true,
+        children: [
         Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 100.h,
-                    decoration: BoxDecoration(color: cs.surface),
-                    child: Padding(
-                      padding: const EdgeInsets.all(5),
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.purple,
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Icon(
-                              Icons.add_moderator_outlined,
-                              color: ColorsManegar.white,
-                              size: 30,
-                            ),
-                          ),
-                          horizontalSpace(20.w),
-                          Column(
-                            children: [
-                              Text('لوحة الادارة', style: TextStyles.font16bold),
-                              verticalSpace(20.h),
-                              Text('مدير النظام', style: TextStyles.font12normal),
-                            ],
-                          ),
-                          horizontalSpace(150.w),
-                          Icon(
-                            Icons.dark_mode_outlined,
-                            color: ColorsManegar.blac,
-                            size: 30,
-                          ),
-                          horizontalSpace(10.w),
-                          Icon(
-                            Icons.arrow_forward,
-                            color: ColorsManegar.red,
-                            size: 30,
-                          ),
-                        ],
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+          AppbarFirstContainer(),
+           
+            verticalSpace(50.h),
+            Padding(
+              padding: const EdgeInsets.all(9.5),
+              child: Text(
+                'نظرة عامة',
+                style: TextStyles.font16bold,
+                textAlign: TextAlign.left,
+              ),
+            ),
+            verticalSpace(10.h),
+            Padding(
+              padding: const EdgeInsets.all(9.5),
+              child: Text(
+                'احصائيات النظام الكاملة',
+                style: TextStyles.font12normal,
+                textAlign: TextAlign.left,
+              ),
+            ),
+            verticalSpace(30.h),
+           Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                AdminHomeCountainer(
+                  width: 200,height: 200,size: 30,
+                  icon1: Icons.attach_money_sharp,
+                  text1: 'اجمالي المبيعات',
+                  text2: '524,580ر.س',
+                  icon2: Icons.trending_up_outlined,
+                  text3: '+18.5%',
+                  colorcont1: AppColors.success,
+                  coloricon1: AppColors.successContainer,
+                ),
+                AdminHomeCountainer(
+                  height: 200,width: 200,size: 30,
+                  icon1: Icons.shopping_bag_outlined,
+                  text1: 'الطلبات الكلية',
+                  text2: '1,847ر.س',
+                  icon2: Icons.trending_up_outlined,
+                  text3: '+12.2%',
+                  colorcont1: AppColors.secondary,
+                  coloricon1: AppColors.primary,
+                ),
+              ],
+            ),
+            verticalSpace(80.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                AdminHomeCountainer(
+                  width: 200,height: 200,size: 30,
+                  icon1: Icons.storefront_outlined,
+                  text1: 'المتاجر النشطة',
+                  text2: '89ر.س',
+                  icon2: Icons.trending_up_outlined,
+                  text3: '+5.3%',
+                  colorcont1: Colors.purpleAccent,
+                  coloricon1: Colors.purple,
+                ),
+                AdminHomeCountainer(
+                  width: 200,height: 200,size: 30,
+                  icon1: Icons.fire_truck_outlined,
+                  text1: 'الموردين',
+                  text2: '34ر.س',
+                  icon2: Icons.trending_up_outlined,
+                  text3: '+2.8%',
+                  colorcont1: Colors.orangeAccent,
+                  coloricon1: Colors.orange,
+                ),
+              ],
+            ),
+           
+            verticalSpace(50.h),
+            BigContainer(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text('اجمالي المبيعات', style: TextStyles.font16bold),
+                    horizontalSpace(50.w),
+                    Container(
+                      width: 70,
+                      height: 20,
+                      decoration: BoxDecoration(
+                        color: cs.secondaryContainer,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                        
+                      child: Text(
+                        'اخر 6 شهور',
+                        style: TextStyle(
+                          color: ColorsManegar.white,
+                          fontSize: 13,
+                        ),
+                        textAlign: TextAlign.right,
                       ),
                     ),
-                  ),
-                  verticalSpace(50.h),
-                  Text(
-                    'نظرة عامة',
-                    style: TextStyles.font16bold,
-                    textAlign: TextAlign.left,
-                  ),
-                  verticalSpace(10.h),
-                  Text(
-                    'احصائيات النظام الكاملة',
-                    style: TextStyles.font12normal,
-                    textAlign: TextAlign.left,
-                  ),
-                  verticalSpace(30.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      AdminHomeCountainer(
-                        icon1: Icons.attach_money_sharp,
-                        text1: 'اجمالي المبيعات',
-                        text2: '524,580ر.س',
-                        icon2: Icons.trending_up_outlined,
-                        text3: '+18.5%',
-                        colorcont1: AppColors.success,
-                        coloricon1: AppColors.successContainer,
+                  ],
+                ),
+                verticalSpace(50.h),
+                SizedBox(
+                  height: 200,
+                  width: 400,
+                  child: TotalSales(data: [0,20,1,4], months: ['kkk','llll','kkk','hhh'],divisions: 5,maxY: 20,),
+                )
+              ],
+            ),
+            BigContainer(children: [
+              Text('عدد الطلبات', style: TextStyles.font16bold),
+              verticalSpace(50.h),
+                      SizedBox(
+                        height: 200,
+                        width: 400,
+                        child: Numberofrequests(data: [0,1,2,10],
+                         labels: ['ooo','jjj','mmm','ccc'],divisions: 5,maxY: 20,),
                       ),
-                      AdminHomeCountainer(
-                        icon1: Icons.shopping_bag_outlined,
-                        text1: 'الطلبات الكلية',
-                        text2: '1,847ر.س',
-                        icon2: Icons.trending_up_outlined,
-                        text3: '+12.2%',
-                        colorcont1: AppColors.secondary,
-                        coloricon1: AppColors.primary,
-                      ),
-                    ],
-                  ),
-                  verticalSpace(80.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      AdminHomeCountainer(
-                        icon1: Icons.storefront_outlined,
-                        text1: 'المتاجر النشطة',
-                        text2: '89ر.س',
-                        icon2: Icons.trending_up_outlined,
-                        text3: '+5.3%',
-                        colorcont1: Colors.purpleAccent,
-                        coloricon1: Colors.purple,
-                      ),
-                      AdminHomeCountainer(
-                        icon1: Icons.fire_truck_outlined,
-                        text1: 'الموردين',
-                        text2: '34ر.س',
-                        icon2: Icons.trending_up_outlined,
-                        text3: '+2.8%',
-                        colorcont1: Colors.orangeAccent,
-                        coloricon1: Colors.orange,
-                      ),
-                    ],
-                  ),
-                  BigContainer(
-                  
-                    children: [Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('اجمالي المبيعات',style: TextStyles.font16BlackBold,),
-                     
-                      Container(
-                        width: 100,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: AppColors.secondaryDark,
-            borderRadius: BorderRadius.circular(15),
+            ]),
+            
+            BigContainer(children: [
+              Text('توزيع المستخدمين', style: TextStyles.font16bold),
+              verticalSpace(100.h),
+                      Row(children: [
+                        SizedBox(
+                          height: 150,
+                          width:200,
+                          child: DistributionOfUsers(colors: [
+                           cs.primary,cs.primary,
+                           cs.secondary,cs.secondary,
+                           AppColors.purpleCardDark,AppColors.purpleCardDark,
+                          ],
+                           stops: [0.3,0.3,0.7,0.7,0.9,1.0]),
                         ),
-                        child: Text('اخر 6 شهور',textAlign: TextAlign.center,style: TextStyle(
-                          color: ColorsManegar.white,fontSize: 15,),),
-                      ),
-                    ],
-                  ),
-                  verticalSpace(20),
-                  SizedBox(
-                    height: 200,
-                    width: 350,
-                    child: TotalSales(data: [50,55,50,60,59,70], months:  ['يناير','فبراير','مارس','أبريل','مايو','يونيو']),), ],
-                  ),
-                   BigContainer(
-                  
-                    children: [
-                      Text('عدد الطلبات',style: TextStyles.font16BlackBold,),
-                  SizedBox(
-                    height: 230,
-                    width: 300,
-                    child: BarChartOnly(data: [50,55,50,60,65,80], labels: ['يناير','فبراير','مارس','أبريل','مايو','يونيو']))
-                  ],
-                  ),
-                   BigContainer(
-                  
-                    children: [
-                      Text('توزيع المستخدمين',style: TextStyles.font16BlackBold,),
-                  verticalSpace(40),
-                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                   children: [
-                     DistributionOfUsers(stops: [0.0,0.65,0.65,0.90,0.90,1.0],size:150,
-                          colors: [AppColors.primary,
-                          AppColors.primary,
-                           Colors.purple,
-                             Colors.purple,
-                            AppColors.secondaryDark,
-                              AppColors.secondaryDark ],
-                          ),
-                          Smallcircular(colorcircle: [AppColors.primary,AppColors.secondaryDark,Colors.purple], 
-                          textnear: ['متاجر','موردين','مدراء']),
-                        
-                          Column(
-                            children: [
-                          Text('65%',style:TextStyles.font16bold),
-                          verticalSpace(10),
-                          Text('25%',style:TextStyles.font16bold),
-                           verticalSpace(10),
-                          Text('10%',style:TextStyles.font16bold),
-                            ],
-                          )
-                   ],
-                 ), 
-                  ],
-                  ),
-                  BigContainer(children: [
-                     Text('النشاط الأخير',style: TextStyles.font16BlackBold,),
-                   Activities(
+                         Column(
+                           children: [
+                             Smallcircular(colorcircle: [
+                             Colors.yellow,
+                             Colors.pink,
+                             Colors.deepOrange,
+                             ],
+                              textnear:[
+                                'متاجر',
+                                'موردين',
+                                'مدراء',
+                              ]),
+                           ],
+                         ),
+                         horizontalSpace(100),
+                        Column(
+                         
+                          children: [
+                            Text('65%',style:TextStyles.font15w700,),
+                        Text('25%',style:TextStyles.font15w700,),
+                        Text('10%',style:TextStyles.font15w700,),
+                          ]),
+                      ],),
+            ]),
+            BigContainer(children: [
+             Activities(
   activity: [
     {
       "activityname": "متجر الأسرة",
       "discriptoin": "طلب جديد",
-      "prise": "2330",
-      "time": "منذ 15 دقيقة",
+      "prise": "2.450ر.س",
+      "time": "منذ 5 دقائق",
       "colorIcon": Colors.blue,
-      "Icon":Icons.store,
-     
+      "Icon":Icons.shopping_bag_outlined,
     },
     {
-      "activityname": "متجر الأمل",
-      "discriptoin": "تم الإرسال",
-      "prise": "1200",
-      "time": "منذ ساعة",
+      "activityname": "شركة التوريد",
+      "discriptoin": "تحديث منتج",
+      "prise": "",
+      "time": "منذ 15 دقيقة",
       "colorIcon": Colors.green,
-      "Icon":Icons.car_crash,
-     
-    },
-    
-  ],
-)
-                            ]),
-                        /* AppBottomNavBar(label1: 'k', label2: 'g',
-                           label3: '[]', label4: 'a', 
-                           icon1: Icon(Icons.home), 
-                           icon2: Icon(Icons.verified_user_sharp),
-                            icon3: Icon(Icons.store),
-                             icon4: Icon(Icons.book)) */ 
-                ],
-              ),
-     ] ),
-    
-     
-      );
+      "Icon":Icons.space_dashboard_sharp,
+          },
+          ],
+             )
+            ]),
+            SizedBox(
+              height: 200,
+              width: 200,
+              child: AppBottomNavBar(label1:'hhhhh', 
+              label2: 'eeeee', label3: 'vvvvv',
+               label4: 'ppppp', icon1: Icon(Icons.abc),
+                icon2:Icon(Icons.abc) , icon3:Icon(Icons.abc) ,
+                 icon4: Icon(Icons.abc)),
+            ),
+          ],
+        ),
+        ],
+      ),
       
-      
-    
+    );
   }
 }
