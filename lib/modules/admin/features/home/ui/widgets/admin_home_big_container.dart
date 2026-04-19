@@ -8,9 +8,10 @@ class BigContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(12),
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.all(10),
       width: double.infinity,
-      height: 400,
+      height: 300,
       decoration: BoxDecoration(
         color: AppColors.lightSurface,
         borderRadius: BorderRadius.circular(10),
