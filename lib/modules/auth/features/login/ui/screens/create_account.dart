@@ -3,6 +3,7 @@ import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/core/theme/theme_mode_cubit.dart';
 import 'package:b2b/core/routing/routes.dart';
+import 'package:b2b/modules/auth/shared/auth_supabase_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,6 +20,7 @@ enum _AccountType { store, supplier }
 class _CreateAccountState extends State<CreateAccount> {
   final _formKey = GlobalKey<FormState>();
   final _storeNameController = TextEditingController();
+  final _extraInfoController = TextEditingController();
   final _emailController = TextEditingController();
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -27,10 +29,74 @@ class _CreateAccountState extends State<CreateAccount> {
   _AccountType _selectedType = _AccountType.store;
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
+  bool _isLoading = false;
+
+  Future<void> _onCreateAccount() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    if (_passwordController.text != _confirmPasswordController.text) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('كلمتا المرور غير متطابقتين')),
+      );
+      return;
+    }
+
+    setState(() => _isLoading = true);
+
+    try {
+      final role = _selectedType == _AccountType.store
+          ? 'supermarket'
+          : 'supplier';
+
+      final result = await AuthSupabaseService.instance.register(
+        name: _storeNameController.text.trim(),
+        email: _emailController.text.trim(),
+        phone: _phoneController.text.trim(),
+        password: _passwordController.text,
+        role: role,
+        address: _selectedType == _AccountType.store
+            ? _extraInfoController.text.trim()
+            : null,
+        companyName: _selectedType == _AccountType.supplier
+            ? _extraInfoController.text.trim()
+            : null,
+      );
+
+      if (!mounted) return;
+
+      if (result.needsEmailConfirmation) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'تم إنشاء الحساب. يرجى تأكيد البريد الإلكتروني ثم تسجيل الدخول.',
+            ),
+          ),
+        );
+        context.pushNamed(Routes.loginScreen);
+        return;
+      }
+
+      if (result.role == 'supermarket') {
+        context.pushNamed(Routes.superHomeScreen);
+      } else {
+        context.pushNamed(Routes.supplierHomeScreen);
+      }
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AuthSupabaseService.instance.userMessageFromError(e)),
+        ),
+      );
+    } finally {
+      if (mounted) setState(() => _isLoading = false);
+    }
+  }
 
   @override
   void dispose() {
     _storeNameController.dispose();
+    _extraInfoController.dispose();
     _emailController.dispose();
     _phoneController.dispose();
     _passwordController.dispose();
@@ -141,12 +207,44 @@ class _CreateAccountState extends State<CreateAccount> {
                 ],
               ),
               verticalSpace(16.h),
-              _FormFieldLabel(text: 'اسم المتجر'),
+              _FormFieldLabel(
+                text: _selectedType == _AccountType.store
+                    ? 'اسم السوبر ماركت'
+                    : 'اسم المورد',
+              ),
               verticalSpace(8.h),
               _AuthField(
                 controller: _storeNameController,
-                hintText: 'مثال: متجر الأسرة',
+                hintText: _selectedType == _AccountType.store
+                    ? 'مثال: متجر الأسرة'
+                    : 'مثال: مورد الخليج',
                 keyboardType: TextInputType.name,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'هذا الحقل مطلوب';
+                  }
+                  return null;
+                },
+              ),
+              verticalSpace(14.h),
+              _FormFieldLabel(
+                text: _selectedType == _AccountType.store
+                    ? 'العنوان'
+                    : 'اسم الشركة',
+              ),
+              verticalSpace(8.h),
+              _AuthField(
+                controller: _extraInfoController,
+                hintText: _selectedType == _AccountType.store
+                    ? 'مثال: الرياض - حي اليرموك'
+                    : 'مثال: شركة المورد الحديث',
+                keyboardType: TextInputType.text,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'هذا الحقل مطلوب';
+                  }
+                  return null;
+                },
               ),
               verticalSpace(14.h),
               _FormFieldLabel(text: 'البريد الإلكتروني'),
@@ -155,6 +253,15 @@ class _CreateAccountState extends State<CreateAccount> {
                 controller: _emailController,
                 hintText: 'example@company.com',
                 keyboardType: TextInputType.emailAddress,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'هذا الحقل مطلوب';
+                  }
+                  if (!value.contains('@')) {
+                    return 'صيغة البريد غير صحيحة';
+                  }
+                  return null;
+                },
               ),
               verticalSpace(14.h),
               _FormFieldLabel(text: 'رقم الهاتف'),
@@ -163,6 +270,12 @@ class _CreateAccountState extends State<CreateAccount> {
                 controller: _phoneController,
                 hintText: '+966 XX XXX XXXX',
                 keyboardType: TextInputType.phone,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'هذا الحقل مطلوب';
+                  }
+                  return null;
+                },
               ),
               verticalSpace(14.h),
               _FormFieldLabel(text: 'كلمة المرور'),
@@ -171,6 +284,12 @@ class _CreateAccountState extends State<CreateAccount> {
                 controller: _passwordController,
                 hintText: '••••••••',
                 obscureText: _obscurePassword,
+                validator: (value) {
+                  if (value == null || value.length < 6) {
+                    return 'كلمة المرور قصيرة';
+                  }
+                  return null;
+                },
                 suffixIcon: IconButton(
                   onPressed: () {
                     setState(() => _obscurePassword = !_obscurePassword);
@@ -190,6 +309,12 @@ class _CreateAccountState extends State<CreateAccount> {
                 controller: _confirmPasswordController,
                 hintText: '••••••••',
                 obscureText: _obscureConfirmPassword,
+                validator: (value) {
+                  if (value == null || value.length < 6) {
+                    return 'كلمة المرور قصيرة';
+                  }
+                  return null;
+                },
                 suffixIcon: IconButton(
                   onPressed: () {
                     setState(() {
@@ -209,16 +334,27 @@ class _CreateAccountState extends State<CreateAccount> {
                 width: double.infinity,
                 height: 52.h,
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: _isLoading ? null : _onCreateAccount,
                   style: FilledButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14.r),
                     ),
                   ),
-                  child: Text(
-                    'إنشاء الحساب',
-                    style: TextStyles.font16w700.copyWith(color: cs.onPrimary),
-                  ),
+                  child: _isLoading
+                      ? SizedBox(
+                          width: 20.w,
+                          height: 20.w,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: cs.onPrimary,
+                          ),
+                        )
+                      : Text(
+                          'إنشاء الحساب',
+                          style: TextStyles.font16w700.copyWith(
+                            color: cs.onPrimary,
+                          ),
+                        ),
                 ),
               ),
               verticalSpace(12.h),
@@ -316,6 +452,7 @@ class _AuthField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool obscureText;
   final Widget? suffixIcon;
+  final String? Function(String?)? validator;
 
   const _AuthField({
     required this.controller,
@@ -323,6 +460,7 @@ class _AuthField extends StatelessWidget {
     this.keyboardType,
     this.obscureText = false,
     this.suffixIcon,
+    this.validator,
   });
 
   @override
@@ -333,6 +471,7 @@ class _AuthField extends StatelessWidget {
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscureText,
+      validator: validator,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyles.font12normal.copyWith(color: cs.onSurfaceVariant),

@@ -2,11 +2,14 @@ import 'package:b2b/core/helpers/extensions.dart';
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/modules/auth/features/account/data/super_account_data.dart';
+import 'package:b2b/modules/auth/shared/auth_supabase_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SuperAccountInfoSection extends StatelessWidget {
-  const SuperAccountInfoSection({super.key});
+  final UserProfile userProfile;
+
+  const SuperAccountInfoSection({super.key, required this.userProfile});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +30,20 @@ class SuperAccountInfoSection extends StatelessWidget {
             style: TextStyles.font18w700.copyWith(color: cs.onSurface),
           ),
           verticalSpace(12.h),
-          ...superAccountBusinessInfo.map(
-            (item) => _InfoRow(label: item.label, value: item.value),
+          _InfoRow(label: 'البريد الإلكتروني', value: userProfile.email),
+          _InfoRow(label: 'رقم الهاتف', value: userProfile.phone),
+          if (userProfile.address != null && userProfile.address != '-')
+            _InfoRow(label: 'العنوان', value: userProfile.address!),
+          if (userProfile.companyName != null &&
+              userProfile.companyName!.isNotEmpty)
+            _InfoRow(label: 'اسم الشركة', value: userProfile.companyName!),
+          _InfoRow(
+            label: 'نوع الحساب',
+            value: userProfile.role == 'supermarket' ? 'سوبر ماركت' : 'موزع',
           ),
+          ...superAccountBusinessInfo
+              .where((item) => item.label != 'البريد الإلكتروني')
+              .map((item) => _InfoRow(label: item.label, value: item.value)),
         ],
       ),
     );
