@@ -25,14 +25,16 @@ class SupplierLayout extends StatelessWidget {
             child: screens[state.currentIndex],
           ),
           bottomNavigationBar: AppBottomNavBar(
-            label1: 'المنتجات',
-            label2: 'الطلبات',
-            label3: 'الفواتير',
-            label4: 'العملاء',
-            icon1: Icon(Icons.category),
-            icon2: Icon(Icons.inventory_2),
-            icon3: Icon(Icons.receipt_long_outlined),
-            icon4: Icon(Icons.person),
+            items: const [
+              AppBottomNavItem(label: 'المنتجات', icon: Icons.category),
+              AppBottomNavItem(label: 'الطلبات', icon: Icons.inventory_2),
+              AppBottomNavItem(
+                label: 'الفواتير',
+                icon: Icons.receipt_long_outlined,
+              ),
+              AppBottomNavItem(label: 'العملاء', icon: Icons.person),
+            ],
+            badgeIndex: 1,
           ),
         );
       },

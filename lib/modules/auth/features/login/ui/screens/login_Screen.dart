@@ -1,10 +1,10 @@
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/app_color_scheme_extention.dart';
 import 'package:b2b/core/theme/textstyles.dart';
-import 'package:b2b/modules/auth/ui/widgets/app_text.dart';
-import 'package:b2b/modules/auth/ui/widgets/auth_button.dart';
-import 'package:b2b/modules/auth/ui/widgets/auth_container.dart';
-import 'package:b2b/modules/auth/ui/widgets/auth_logo_container.dart';
+import 'package:b2b/modules/auth/features/login/ui/widgets/app_text.dart';
+import 'package:b2b/modules/auth/features/login/ui/widgets/auth_button.dart';
+import 'package:b2b/modules/auth/features/login/ui/widgets/auth_container.dart';
+import 'package:b2b/modules/auth/features/login/ui/widgets/auth_logo_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

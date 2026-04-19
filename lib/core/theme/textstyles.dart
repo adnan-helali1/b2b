@@ -62,6 +62,12 @@ class TextStyles {
     fontFamily: 'cairo',
   );
 
+  static final TextStyle font14w600 = TextStyle(
+    fontSize: 14.sp,
+    fontFamily: 'cairo',
+    fontWeight: FontWeight.w600,
+  );
+
   static final TextStyle font16bold = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.bold,

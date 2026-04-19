@@ -6,31 +6,40 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class QuickActionItem extends StatelessWidget {
   final IconData icon;
   final String label;
+  void Function() onTap;
 
-  const QuickActionItem({super.key, required this.icon, required this.label});
+  QuickActionItem({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
 
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 14),
-      decoration: BoxDecoration(
-        color: cs.onPrimary.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, color: cs.onPrimary, size: 26.sp),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 14),
+        decoration: BoxDecoration(
+          color: cs.onPrimary.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: cs.onPrimary, size: 26.sp),
 
-          verticalSpace(8.h),
+            verticalSpace(8.h),
 
-          Text(
-            label,
-            style: TextStyles.font12normal.copyWith(color: cs.onPrimary),
-          ),
-        ],
+            Text(
+              label,
+              style: TextStyles.font12normal.copyWith(color: cs.onPrimary),
+            ),
+          ],
+        ),
       ),
     );
   }

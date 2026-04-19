@@ -67,7 +67,7 @@ class AppColors {
   static const Color redCardDark = Color(0xff362531);
   static const Color greenCard = Color(0xffE6FDED);
   static const Color greenCardDark = Color(0xff1A3335);
-  static const Color purpleCard = Color(0xffF7EFFF);
+  static const Color purpleCard = Color(0xffF4F8FE);
   static const Color purpleCardDark = Color(0xff2B2549);
 
   AppColors._();

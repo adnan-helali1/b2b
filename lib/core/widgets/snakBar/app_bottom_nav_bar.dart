@@ -1,51 +1,39 @@
 import 'package:b2b/core/widgets/snakBar/app_buttom_nav_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class AppBottomNavItem {
+  final String label;
+  final IconData icon;
+
+  const AppBottomNavItem({required this.label, required this.icon});
+}
 
 class AppBottomNavBar extends StatelessWidget {
-  final String label1;
-  final String label2;
-  final String label3;
-  final String label4;
-  final Icon icon1;
-  final Icon icon2;
-  final Icon icon3;
-  final Icon icon4;
-  late final List<Icon> icons = [icon1, icon2, icon3, icon4];
+  final List<AppBottomNavItem> items;
+  final int? badgeIndex;
 
-  AppBottomNavBar({
-    super.key,
-    required this.label1,
-    required this.label2,
-    required this.label3,
-    required this.label4,
-    required this.icon1,
-    required this.icon2,
-    required this.icon3,
-    required this.icon4,
-  });
+  AppBottomNavBar({super.key, required this.items, this.badgeIndex});
 
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final items = icons;
-
-    final labels = [label1, label2, label3, label4];
 
     return BlocBuilder<BottomNavCubit, BottomNavState>(
       builder: (context, state) {
         return Container(
-          // margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 10),
+          padding: EdgeInsets.symmetric(vertical: 9.h, horizontal: 10.w),
           decoration: BoxDecoration(
             color: cs.surface,
-            borderRadius: BorderRadius.circular(6),
+            borderRadius: BorderRadius.circular(6.r),
             boxShadow: [BoxShadow(color: cs.shadow, blurRadius: 5)],
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(items.length, (index) {
               final isSelected = index == state.currentIndex;
+              final item = items[index];
 
               return GestureDetector(
                 onTap: () {
@@ -59,13 +47,13 @@ class AppBottomNavBar extends StatelessWidget {
                       scale: scale,
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 250),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 7,
-                          vertical: 4,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 7.w,
+                          vertical: 4.h,
                         ),
                         decoration: BoxDecoration(
                           color: isSelected ? cs.primary : cs.surface,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10.r),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -74,10 +62,11 @@ class AppBottomNavBar extends StatelessWidget {
                               clipBehavior: Clip.none,
                               children: [
                                 Icon(
-                                  icons[index].icon,
+                                  item.icon,
                                   color: isSelected ? cs.surface : cs.primary,
                                 ),
-                                if (index == 1 && state.ordersCount > 0)
+                                if (badgeIndex == index &&
+                                    state.ordersCount > 0)
                                   Positioned(
                                     right: -6,
                                     top: -6,
@@ -98,11 +87,11 @@ class AppBottomNavBar extends StatelessWidget {
                                   ),
                               ],
                             ),
-                            const SizedBox(height: 4),
+                            SizedBox(height: 4.h),
                             Text(
-                              labels[index],
+                              item.label,
                               style: TextStyle(
-                                fontSize: 10,
+                                fontSize: 10.sp,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'cairo',
                                 color: isSelected ? cs.surface : cs.primary,
