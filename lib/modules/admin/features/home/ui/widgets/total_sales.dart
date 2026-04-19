@@ -1,13 +1,7 @@
-import 'dart:math';
-
 import 'package:b2b/core/helpers/spacing.dart';
-import 'package:b2b/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:b2b/core/theme/app_colors.dart';
 import 'package:flutter/widgets.dart';
-import 'package:b2b/modules/admin/features/home/ui/widgets/admin_home_big_container.dart';
-import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
-
 
 class TotalSales extends StatelessWidget {
   final List<double> data;
@@ -47,11 +41,7 @@ class TotalSales extends StatelessWidget {
                       Expanded(
                         child: Container(
                           decoration: const BoxDecoration(
-                            border: Border(
-                              top: BorderSide(
-                                color: Colors.grey,
-                              ),
-                            ),
+                            border: Border(top: BorderSide(color: Colors.grey)),
                           ),
                         ),
                       ),
@@ -65,9 +55,7 @@ class TotalSales extends StatelessWidget {
                 return Expanded(
                   child: Container(
                     decoration: const BoxDecoration(
-                      border: Border(
-                        right: BorderSide(color: Colors.grey),
-                      ),
+                      border: Border(right: BorderSide(color: Colors.grey)),
                     ),
                   ),
                 );
@@ -76,13 +64,10 @@ class TotalSales extends StatelessWidget {
             Positioned.fill(
               left: 35,
               child: CustomPaint(
-                painter: _LinePainter(
-                  data: data,
-                  maxY: maxY,
-                ),
+                painter: _LinePainter(data: data, maxY: maxY),
               ),
             ),
-         verticalSpace( 100,),
+            verticalSpace(100),
             Positioned(
               bottom: 0,
               left: 35,
@@ -103,19 +88,13 @@ class TotalSales extends StatelessWidget {
               left: 35,
               top: 0,
               bottom: 0,
-              child: Container(
-                width: 2,
-                color: Colors.black,
-              ),
+              child: Container(width: 2, color: Colors.black),
             ),
             Positioned(
               left: 35,
               right: 0,
               bottom: 0,
-              child: Container(
-                height: 2,
-                color: Colors.black,
-              ),
+              child: Container(height: 2, color: Colors.black),
             ),
           ],
         );
@@ -128,10 +107,7 @@ class _LinePainter extends CustomPainter {
   final List<double> data;
   final double maxY;
 
-  _LinePainter({
-    required this.data,
-    required this.maxY,
-  });
+  _LinePainter({required this.data, required this.maxY});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -178,4 +154,3 @@ class _LinePainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
- 

@@ -7,13 +7,27 @@ import 'package:b2b/modules/auth/features/account/ui/widgets/super_account_heade
 import 'package:b2b/modules/auth/features/account/ui/widgets/super_account_info_section.dart';
 import 'package:b2b/modules/auth/features/account/ui/widgets/super_account_settings_section.dart';
 import 'package:b2b/modules/auth/features/account/ui/widgets/super_account_stat_card.dart';
+import 'package:b2b/modules/auth/shared/auth_supabase_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../data/super_account_data.dart';
 
-class SuperAccountScreen extends StatelessWidget {
+class SuperAccountScreen extends StatefulWidget {
   const SuperAccountScreen({super.key});
+
+  @override
+  State<SuperAccountScreen> createState() => _SuperAccountScreenState();
+}
+
+class _SuperAccountScreenState extends State<SuperAccountScreen> {
+  late Future<UserProfile> _userProfileFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _userProfileFuture = AuthSupabaseService.instance.getCurrentUserProfile();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,67 +40,112 @@ class SuperAccountScreen extends StatelessWidget {
         icon: Icons.shopping_cart_outlined,
       ),
       body: SafeArea(
-        child: ListView(
-          padding: EdgeInsets.all(16.r),
-          children: [
-            Text(
-              'الملف الشخصي',
-              style: TextStyles.font22bold.copyWith(color: cs.onSurface),
-            ),
-            verticalSpace(4.h),
-            Text(
-              'معلومات الحساب والإعدادات',
-              style: TextStyles.font14.copyWith(color: cs.onSurfaceVariant),
-            ),
-            verticalSpace(16.h),
-            const SuperAccountHeaderCard(),
-            verticalSpace(16.h),
-            Row(
+        child: FutureBuilder<UserProfile>(
+          future: _userProfileFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            }
+
+            if (snapshot.hasError) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.error_outline, size: 48.sp, color: Colors.red),
+                    verticalSpace(16.h),
+                    Text(
+                      'خطأ في تحميل البيانات',
+                      style: TextStyles.font18w700.copyWith(
+                        color: cs.onSurface,
+                      ),
+                    ),
+                    verticalSpace(8.h),
+                    Text(
+                      snapshot.error.toString(),
+                      style: TextStyles.font14.copyWith(
+                        color: cs.onSurfaceVariant,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              );
+            }
+
+            final userProfile = snapshot.data;
+            if (userProfile == null) {
+              return Center(
+                child: Text(
+                  'لم يتم العثور على بيانات المستخدم',
+                  style: TextStyles.font18w700.copyWith(color: cs.onSurface),
+                ),
+              );
+            }
+
+            return ListView(
+              padding: EdgeInsets.all(16.r),
               children: [
-                Expanded(
-                  child: SuperAccountStatCard(
-                    value: superAccountStats[0].value,
-                    title: superAccountStats[0].title,
-                    subtitle: superAccountStats[0].subtitle,
-                    backgroundColor: cs.surface,
-                    valueColor: cs.primary,
-                    icon: Icons.shopping_bag_outlined,
-                    iconColor: cs.primary,
-                  ),
+                Text(
+                  'الملف الشخصي',
+                  style: TextStyles.font22bold.copyWith(color: cs.onSurface),
                 ),
-                horizontalSpace(10.w),
-                Expanded(
-                  child: SuperAccountStatCard(
-                    value: superAccountStats[1].value,
-                    title: superAccountStats[1].title,
-                    subtitle: superAccountStats[1].subtitle,
-                    backgroundColor: cs.surface,
-                    valueColor: context.appColors.success,
-                    icon: Icons.trending_up_rounded,
-                    iconColor: context.appColors.success,
-                  ),
+                verticalSpace(4.h),
+                Text(
+                  'معلومات الحساب والإعدادات',
+                  style: TextStyles.font14.copyWith(color: cs.onSurfaceVariant),
                 ),
-                horizontalSpace(10.w),
-                Expanded(
-                  child: SuperAccountStatCard(
-                    value: superAccountStats[2].value,
-                    title: superAccountStats[2].title,
-                    subtitle: superAccountStats[2].subtitle,
-                    backgroundColor: cs.surface,
-                    valueColor: context.appColors.warning,
-                    icon: Icons.storefront_outlined,
-                    iconColor: context.appColors.warning,
-                  ),
+                verticalSpace(16.h),
+                SuperAccountHeaderCard(userProfile: userProfile),
+                verticalSpace(16.h),
+                Row(
+                  children: [
+                    Expanded(
+                      child: SuperAccountStatCard(
+                        value: superAccountStats[0].value,
+                        title: superAccountStats[0].title,
+                        subtitle: superAccountStats[0].subtitle,
+                        backgroundColor: cs.surface,
+                        valueColor: cs.primary,
+                        icon: Icons.shopping_bag_outlined,
+                        iconColor: cs.primary,
+                      ),
+                    ),
+                    horizontalSpace(10.w),
+                    Expanded(
+                      child: SuperAccountStatCard(
+                        value: superAccountStats[1].value,
+                        title: superAccountStats[1].title,
+                        subtitle: superAccountStats[1].subtitle,
+                        backgroundColor: cs.surface,
+                        valueColor: context.appColors.success,
+                        icon: Icons.trending_up_rounded,
+                        iconColor: context.appColors.success,
+                      ),
+                    ),
+                    horizontalSpace(10.w),
+                    Expanded(
+                      child: SuperAccountStatCard(
+                        value: superAccountStats[2].value,
+                        title: superAccountStats[2].title,
+                        subtitle: superAccountStats[2].subtitle,
+                        backgroundColor: cs.surface,
+                        valueColor: context.appColors.warning,
+                        icon: Icons.storefront_outlined,
+                        iconColor: context.appColors.warning,
+                      ),
+                    ),
+                  ],
                 ),
+                verticalSpace(16.h),
+                SuperAccountInfoSection(userProfile: userProfile),
+                verticalSpace(16.h),
+                const SuperAccountActionGrid(),
+                verticalSpace(16.h),
+                const SuperAccountSettingsSection(),
               ],
-            ),
-            verticalSpace(16.h),
-            const SuperAccountInfoSection(),
-            verticalSpace(16.h),
-            const SuperAccountActionGrid(),
-            verticalSpace(16.h),
-            const SuperAccountSettingsSection(),
-          ],
+            );
+          },
         ),
       ),
     );

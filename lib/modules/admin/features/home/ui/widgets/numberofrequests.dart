@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:b2b/core/theme/app_colors.dart';
-import 'package:flutter/widgets.dart';
-import 'package:b2b/modules/admin/features/home/ui/widgets/admin_home_big_container.dart';
-import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
- 
-
 
 class Numberofrequests extends StatelessWidget {
   final List<double> data;
@@ -31,14 +26,12 @@ class Numberofrequests extends StatelessWidget {
 
           return Stack(
             children: [
-              
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(divisions + 1, (i) {
                   return Container(
                     height: 1,
                     color: Colors.grey.withOpacity(0.3),
-                    
                   );
                 }),
               ),
@@ -52,54 +45,47 @@ class Numberofrequests extends StatelessWidget {
                   );
                 }),
               ),
-             Positioned(
-              left: 5,
-              top: 0,
-              bottom: 0,
-              child: Container(
-                width: 2,
-                color: Colors.black,
+              Positioned(
+                left: 5,
+                top: 0,
+                bottom: 0,
+                child: Container(width: 2, color: Colors.black),
               ),
-            ),
-            //X
-            Positioned(
-              left:8,
-              right: 0,
-              bottom: 0,
-              child: Container(
-                height: 2,
-                color: Colors.black,
+              //X
+              Positioned(
+                left: 8,
+                right: 0,
+                bottom: 0,
+                child: Container(height: 2, color: Colors.black),
               ),
-            ),
-          
-/////////////////////////////////////////////////////////////
 
-Positioned(
-  left: 8, 
-  right: 0,
-  bottom: 0, 
-  child: Row(
-    crossAxisAlignment: CrossAxisAlignment.end,
-    children: List.generate(data.length, (i) {
-      final barHeight = (data[i] / maxY) * height;
+              /////////////////////////////////////////////////////////////
+              Positioned(
+                left: 8,
+                right: 0,
+                bottom: 0,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: List.generate(data.length, (i) {
+                    final barHeight = (data[i] / maxY) * height;
 
-      return Expanded(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 500),
-            height: barHeight,
-            alignment: Alignment.bottomCenter,
-            decoration: BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.circular(6),
-            ),
-          ),
-        ),
-      );
-    }),
-  ),
-),
+                    return Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 6),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          height: barHeight,
+                          alignment: Alignment.bottomCenter,
+                          decoration: BoxDecoration(
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+                ),
+              ),
               Positioned(
                 bottom: 2,
                 left: 0,
@@ -117,7 +103,6 @@ Positioned(
                   }),
                 ),
               ),
-              
             ],
           );
         },

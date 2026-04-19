@@ -1,11 +1,14 @@
 import 'package:b2b/core/helpers/extensions.dart';
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/textstyles.dart';
+import 'package:b2b/modules/auth/shared/auth_supabase_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SuperAccountHeaderCard extends StatelessWidget {
-  const SuperAccountHeaderCard({super.key});
+  final UserProfile userProfile;
+
+  const SuperAccountHeaderCard({super.key, required this.userProfile});
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +45,13 @@ class SuperAccountHeaderCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'متجر الأسرة',
+                            userProfile.name,
                             style: TextStyles.font18w700.copyWith(
                               color: cs.onSurface,
                             ),
                           ),
                           Text(
-                            'مؤسسة الأسرة للتجارة',
+                            userProfile.companyName ?? userProfile.name,
                             style: TextStyles.font12normal.copyWith(
                               color: cs.onSurfaceVariant,
                             ),
@@ -74,25 +77,27 @@ class SuperAccountHeaderCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(999.r),
                   ),
                   child: Text(
-                    'سوبر ماركت',
+                    userProfile.role == 'supermarket' ? 'سوبر ماركت' : 'موزع',
                     style: TextStyles.font12w600.copyWith(color: cs.primary),
                   ),
                 ),
                 verticalSpace(12.h),
                 _ContactRow(
                   icon: Icons.email_outlined,
-                  value: 'supermarket@family.com',
+                  value: userProfile.email,
                 ),
                 verticalSpace(8.h),
                 _ContactRow(
                   icon: Icons.phone_outlined,
-                  value: '+966 50 234 5678',
+                  value: userProfile.phone,
                 ),
-                verticalSpace(8.h),
-                _ContactRow(
-                  icon: Icons.location_on_outlined,
-                  value: 'الرياض، حي الزنبق، شارع الأمير سلطان',
-                ),
+                if (userProfile.address != null && userProfile.address != '-')
+                  verticalSpace(8.h),
+                if (userProfile.address != null && userProfile.address != '-')
+                  _ContactRow(
+                    icon: Icons.location_on_outlined,
+                    value: userProfile.address!,
+                  ),
                 verticalSpace(8.h),
                 _ContactRow(
                   icon: Icons.calendar_today_outlined,

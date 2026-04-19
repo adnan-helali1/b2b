@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:b2b/core/theme/app_colors.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:flutter/widgets.dart';
@@ -7,13 +5,13 @@ import 'package:b2b/core/theme/colors.dart';
 
 // hay widget 7elew bas law 2elasma2 a7san
 class AdminHomeCountainer extends StatelessWidget {
-  final IconData ?icon1;
+  final IconData? icon1;
   final String text1;
   final String? text2;
   final IconData? icon2;
   final String? text3;
   final Color? colorcont1;
-  final Color ?coloricon1;
+  final Color? coloricon1;
   final double width;
   final double height;
   final double? size;
@@ -54,18 +52,18 @@ class AdminHomeCountainer extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                color: colorcont1??null,
+                color: colorcont1 ?? null,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(icon1??null, color: coloricon1, size:size??null),
+              child: Icon(icon1 ?? null, color: coloricon1, size: size ?? null),
             ),
             Text(text1, style: TextStyles.font12),
-            Text(text2??'', style: TextStyles.font18Bold),
+            Text(text2 ?? '', style: TextStyles.font18Bold),
             Row(
               children: [
-                Icon(icon2??null, color: ColorsManegar.green, size: 10),
+                Icon(icon2 ?? null, color: ColorsManegar.green, size: 10),
                 Text(
-                  text3??'',
+                  text3 ?? '',
                   style: TextStyle(
                     color: ColorsManegar.green,
                     fontSize: 12,
