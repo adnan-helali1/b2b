@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:b2b/core/theme/app_colors.dart';
 import 'package:flutter/widgets.dart';
-import 'package:b2b/modules/admin/features/home/ui/widgets/admin_home_big_container.dart';
-import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
-
 
 class DistributionOfUsers extends StatelessWidget {
   final double size;
@@ -24,11 +20,8 @@ class DistributionOfUsers extends StatelessWidget {
       height: size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        gradient: SweepGradient(
-          colors: colors,
-          stops: stops,
-        ),
+        gradient: SweepGradient(colors: colors, stops: stops),
       ),
     );
   }
-} 
+}

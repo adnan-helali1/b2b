@@ -39,7 +39,6 @@ class MainLayout extends StatelessWidget {
               ),
               AppBottomNavItem(label: 'نقطة البيع', icon: Icons.attach_money),
             ],
-            badgeIndex: 1,
           ),
         );
       },

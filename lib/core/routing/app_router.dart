@@ -1,4 +1,5 @@
 import 'package:b2b/core/routing/routes.dart';
+import 'package:b2b/modules/admin/features/home/ui/screen/admin_home_ui_screen.dart';
 import 'package:b2b/modules/auth/features/login/ui/screens/create_account.dart';
 import 'package:b2b/modules/auth/features/login/ui/screens/login_Screen.dart';
 import 'package:b2b/modules/super/features/main_layout.dart';
@@ -12,7 +13,6 @@ import 'package:b2b/modules/super/features/store/ui/screens/super_store_screen.d
 import 'package:b2b/modules/supplier/features/supplier_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:b2b/modules/admin/features/home/ui/screen/admin_home_ui_screen.dart';
 import 'package:b2b/modules/admin/features/home/ui/screen/admin_ui_user_screen.dart';
 import 'package:b2b/modules/super/features/invoice/ui/screens/super_invoice_screen.dart';
 
@@ -42,6 +42,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case Routes.adminUiUserScreen:
         return MaterialPageRoute(builder: (_) => AdminUiUserScreen());
+      case Routes.adminHomeScreen:
+        return MaterialPageRoute(builder: (_) => AdminHomeScreen());
       case Routes.superOrderScreen:
         return MaterialPageRoute(builder: (_) => SuperOrderScreen());
       case Routes.superNewOrderScreen:
