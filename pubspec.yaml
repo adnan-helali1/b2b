@@ -36,6 +36,7 @@ dependencies:
 
   # JSON
   json_annotation: ^4.8.1
+  supabase_flutter: ^2.12.2
 
 dev_dependencies:
   flutter_test:
