@@ -24,11 +24,15 @@ class SupplierHomeScreen extends StatelessWidget {
             children: [
               Text(
                 'منتجاتي',
-                style: TextStyles.font18Bold.copyWith(color: cs.onSurface),
+                style: TextStyles.font18Bold.copyWith(
+                  color: cs.onSurface,
+                ),
               ),
               Text(
                 'إدارة المنتجات والمخزون',
-                style: TextStyles.font14.copyWith(color: cs.onSurfaceVariant),
+                style: TextStyles.font14.copyWith(
+                  color: cs.onSurfaceVariant,
+                ),
               ),
 
               verticalSpace(20),
@@ -54,7 +58,10 @@ class SupplierHomeScreen extends StatelessWidget {
               ),
 
               verticalSpace(20),
-              AppSearchFiled(showAddButton: true, hintText: 'ابحث عن منتج...'),
+              AppSearchFiled(
+                showAddButton: true,
+                hintText: 'ابحث عن منتج...',
+              ),
               verticalSpace(20),
 
               const CategoryFilterBar(),
@@ -65,7 +72,10 @@ class SupplierHomeScreen extends StatelessWidget {
                 builder: (context, state) {
                   return Column(
                     children: state.filtered
-                        .map((e) => ProductItemCard(product: e))
+                        .map(
+                          (e) =>
+                              ProductItemCard(product: e),
+                        )
                         .toList(),
                   );
                 },
