@@ -2,6 +2,7 @@ import 'package:b2b/core/widgets/snakBar/app_bottom_nav_bar.dart';
 import 'package:b2b/core/widgets/snakBar/app_buttom_nav_cubit.dart';
 import 'package:b2b/modules/supplier/features/home/ui/screens/supplier_home_screen.dart';
 import 'package:b2b/modules/supplier/features/invoice/ui/screens/invoice_screen.dart';
+import 'package:b2b/modules/supplier/features/orders/ui/screens/orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,7 +13,7 @@ class SupplierLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     final screens = [
       SupplierHomeScreen(),
-      const Placeholder(),
+      OrdersScreen(),
       InvoicesScreen(),
       const Placeholder(),
     ];
@@ -26,13 +27,22 @@ class SupplierLayout extends StatelessWidget {
           ),
           bottomNavigationBar: AppBottomNavBar(
             items: const [
-              AppBottomNavItem(label: 'المنتجات', icon: Icons.category),
-              AppBottomNavItem(label: 'الطلبات', icon: Icons.inventory_2),
+              AppBottomNavItem(
+                label: 'المنتجات',
+                icon: Icons.category,
+              ),
+              AppBottomNavItem(
+                label: 'الطلبات',
+                icon: Icons.inventory_2,
+              ),
               AppBottomNavItem(
                 label: 'الفواتير',
                 icon: Icons.receipt_long_outlined,
               ),
-              AppBottomNavItem(label: 'العملاء', icon: Icons.person),
+              AppBottomNavItem(
+                label: 'العملاء',
+                icon: Icons.person,
+              ),
             ],
             badgeIndex: 1,
           ),
