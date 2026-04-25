@@ -34,6 +34,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case Routes.adminUiUserScreen:
         return MaterialPageRoute(builder: (_) => AdminUiUserScreen());
+      case Routes.adminHomeUIScreen:
+        return MaterialPageRoute(builder: (_) => AdminHomeUiScreen());
       case Routes.superOrderScreen:
         return MaterialPageRoute(builder: (_) => SuperOrderScreen());
 

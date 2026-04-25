@@ -59,7 +59,7 @@ class AdminHomeCountainer extends StatelessWidget {
               ),
               child: Icon(icon1??null, color: coloricon1, size:size??null),
             ),
-            Text(text1, style: TextStyles.font12),
+            Text(text1, style: TextStyles.font12,),
             Text(text2??'', style: TextStyles.font18Bold),
             Row(
               children: [

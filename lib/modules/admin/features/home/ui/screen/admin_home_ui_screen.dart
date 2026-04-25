@@ -1,7 +1,7 @@
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:b2b/core/theme/colors.dart';
 import 'package:b2b/core/theme/textstyles.dart';
-import 'package:b2b/modules/admin/features/home/ui/widgets/activities.dart';
+import 'package:b2b/modules/admin/features/home/ui/widgets/home_activities_list.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/admin_home_big_container.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/appbar_first_container.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/distribution_of_users.dart';
@@ -16,8 +16,7 @@ import 'package:b2b/core/widgets/snakBar/app_bottom_nav_bar.dart';
 
 class AdminHomeUiScreen extends StatelessWidget {
   const AdminHomeUiScreen({super.key});
-
-  @override
+ @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     //final mn= Theme.of(context). extension<AppColors>()!;
@@ -58,7 +57,7 @@ class AdminHomeUiScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 AdminHomeCountainer(
-                  width: 200,height: 200,size: 30,
+                  width: 150,height: 150,size: 30,
                   icon1: Icons.attach_money_sharp,
                   text1: 'اجمالي المبيعات',
                   text2: '524,580ر.س',
@@ -68,7 +67,7 @@ class AdminHomeUiScreen extends StatelessWidget {
                   coloricon1: AppColors.successContainer,
                 ),
                 AdminHomeCountainer(
-                  height: 200,width: 200,size: 30,
+                  height: 150,width: 150,size: 30,
                   icon1: Icons.shopping_bag_outlined,
                   text1: 'الطلبات الكلية',
                   text2: '1,847ر.س',
@@ -84,7 +83,7 @@ class AdminHomeUiScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 AdminHomeCountainer(
-                  width: 200,height: 200,size: 30,
+                  width: 150,height: 150,size: 30,
                   icon1: Icons.storefront_outlined,
                   text1: 'المتاجر النشطة',
                   text2: '89ر.س',
@@ -94,7 +93,7 @@ class AdminHomeUiScreen extends StatelessWidget {
                   coloricon1: Colors.purple,
                 ),
                 AdminHomeCountainer(
-                  width: 200,height: 200,size: 30,
+                  width: 150,height: 150,size: 30,
                   icon1: Icons.fire_truck_outlined,
                   text1: 'الموردين',
                   text2: '34ر.س',
@@ -108,6 +107,7 @@ class AdminHomeUiScreen extends StatelessWidget {
            
             verticalSpace(50.h),
             BigContainer(
+              height: 300,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -141,7 +141,9 @@ class AdminHomeUiScreen extends StatelessWidget {
                 )
               ],
             ),
-            BigContainer(children: [
+            BigContainer(
+              height: 300,
+              children: [
               Text('عدد الطلبات', style: TextStyles.font16bold),
               verticalSpace(50.h),
                       SizedBox(
@@ -152,7 +154,9 @@ class AdminHomeUiScreen extends StatelessWidget {
                       ),
             ]),
             
-            BigContainer(children: [
+            BigContainer(
+              height: 300,
+              children: [
               Text('توزيع المستخدمين', style: TextStyles.font16bold),
               verticalSpace(100.h),
                       Row(children: [
@@ -180,18 +184,22 @@ class AdminHomeUiScreen extends StatelessWidget {
                               ]),
                            ],
                          ),
-                         horizontalSpace(100),
+                         horizontalSpace(10),
                         Column(
-                         
+                        
                           children: [
                             Text('65%',style:TextStyles.font15w700,),
+                            verticalSpace(15),
                         Text('25%',style:TextStyles.font15w700,),
+                        verticalSpace(15),
                         Text('10%',style:TextStyles.font15w700,),
                           ]),
                       ],),
             ]),
-            BigContainer(children: [
-             Activities(
+            BigContainer(
+              height: 300,
+              children: [
+             HomeActivitiesList(
   activity: [
     {
       "activityname": "متجر الأسرة",
@@ -212,15 +220,7 @@ class AdminHomeUiScreen extends StatelessWidget {
           ],
              )
             ]),
-            SizedBox(
-              height: 200,
-              width: 200,
-              child: AppBottomNavBar(label1:'hhhhh', 
-              label2: 'eeeee', label3: 'vvvvv',
-               label4: 'ppppp', icon1: Icon(Icons.abc),
-                icon2:Icon(Icons.abc) , icon3:Icon(Icons.abc) ,
-                 icon4: Icon(Icons.abc)),
-            ),
+           
           ],
         ),
         ],

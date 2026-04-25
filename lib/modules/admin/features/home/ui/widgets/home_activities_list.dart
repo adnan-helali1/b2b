@@ -4,10 +4,10 @@ import 'package:b2b/core/theme/textstyles.dart';
 import 'package:flutter/material.dart';
 
 
- class Activities extends StatelessWidget {
+ class HomeActivitiesList extends StatelessWidget {
   final List<Map<String, dynamic>> activity;
 
-  const Activities({
+  const HomeActivitiesList({
     super.key,
     required this.activity,
   });
@@ -49,7 +49,7 @@ import 'package:flutter/material.dart';
                     ),
                   ],
                 ),
-               horizontalSpace(180),
+               horizontalSpace(150),
                 Column(
                   children: [
                     Text(
