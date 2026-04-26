@@ -1,5 +1,7 @@
+import 'package:b2b/core/widgets/b2b_app_bar.dart';
 import 'package:b2b/core/widgets/snakBar/app_bottom_nav_bar.dart';
 import 'package:b2b/core/widgets/snakBar/app_buttom_nav_cubit.dart';
+import 'package:b2b/modules/supplier/features/customers/ui/screens/customers_screen.dart';
 import 'package:b2b/modules/supplier/features/home/ui/screens/supplier_home_screen.dart';
 import 'package:b2b/modules/supplier/features/invoice/ui/screens/invoice_screen.dart';
 import 'package:b2b/modules/supplier/features/orders/ui/screens/orders_screen.dart';
@@ -15,12 +17,17 @@ class SupplierLayout extends StatelessWidget {
       SupplierHomeScreen(),
       OrdersScreen(),
       InvoicesScreen(),
-      const Placeholder(),
+      CustomersScreen(),
     ];
 
     return BlocBuilder<BottomNavCubit, BottomNavState>(
       builder: (context, state) {
         return Scaffold(
+          appBar: B2bAppBar(
+            title: 'بوابة المورد',
+            subtitle: 'شركة التوريد الوطنية',
+            icon: Icons.local_shipping_outlined,
+          ),
           body: AnimatedSwitcher(
             duration: const Duration(milliseconds: 300),
             child: screens[state.currentIndex],
