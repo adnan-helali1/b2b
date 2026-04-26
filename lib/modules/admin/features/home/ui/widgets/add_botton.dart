@@ -14,7 +14,7 @@ class AddBotton extends StatelessWidget{
     ),
      child:Row(
       children: [
-        Icon(Icons.person_add_alt,size: 10,),
+        Icon(Icons.person_add_alt,size: 20,),
         Text('اضافة',),
       ],
      )

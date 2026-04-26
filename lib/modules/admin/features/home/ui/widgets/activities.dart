@@ -49,7 +49,7 @@ import 'package:flutter/material.dart';
                     ),
                   ],
                 ),
-               horizontalSpace(180),
+               horizontalSpace(150),
                 Column(
                   children: [
                     Text(
@@ -64,6 +64,7 @@ import 'package:flutter/material.dart';
                 ),
               ],
             ),
+            verticalSpace(15),
             Container(
               margin: EdgeInsets.all(5),
               width: double.infinity,

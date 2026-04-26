@@ -13,7 +13,7 @@ import 'package:b2b/modules/super/features/store/ui/screens/super_store_screen.d
 import 'package:b2b/modules/supplier/features/supplier_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:b2b/modules/admin/features/home/ui/screen/admin_ui_user_screen.dart';
+import 'package:b2b/modules/admin/features/home/ui/screen/admin_user_screen.dart';
 import 'package:b2b/modules/super/features/invoice/ui/screens/super_invoice_screen.dart';
 
 class AppRouter {
@@ -40,8 +40,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => SuperStoreScreen());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
-      case Routes.adminUiUserScreen:
-        return MaterialPageRoute(builder: (_) => AdminUiUserScreen());
+      case Routes.adminUserScreen:
+        return MaterialPageRoute(builder: (_) => AdminUserScreen());
       case Routes.adminHomeScreen:
         return MaterialPageRoute(builder: (_) => AdminHomeScreen());
       case Routes.superOrderScreen:

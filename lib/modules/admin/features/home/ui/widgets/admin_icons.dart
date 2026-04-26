@@ -13,8 +13,8 @@ class AdminIcons extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: circulcolor,
-      radius: 30,
-      child: Icon(icon, color: iconcolor, size: 25),
+      radius: 35,
+      child: Icon(icon, color: iconcolor, size: 30),
     );
   }
 }

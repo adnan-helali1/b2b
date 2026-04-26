@@ -1,6 +1,7 @@
+import 'package:b2b/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/admin_icons.dart';
-
+import 'package:b2b/core/theme/colors.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/core/helpers/spacing.dart';
 
@@ -13,13 +14,17 @@ class AppbarFirstContainer extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 100,
-      decoration: BoxDecoration(color: cs.surface),
+      decoration: BoxDecoration(color:AppColors.lightSurface, borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: AppColors.neutral60.withOpacity(0.5),
+          width: 1,
+        ), ),
       child: Row(
         children: [
           AdminIcons(
-            circulcolor: cs.primary,
+            circulcolor: AppColors.primary,
             icon: Icons.add_moderator_outlined,
-            iconcolor: cs.surface,
+            iconcolor: AppColors.lightBackground,
           ),
           horizontalSpace(20),
           Column(
@@ -29,15 +34,14 @@ class AppbarFirstContainer extends StatelessWidget {
               Text('مدير النظام', style: TextStyles.font12normal),
             ],
           ),
-          Spacer(),
+         horizontalSpace(75),
           AdminIcons(
-            circulcolor: cs.surface,
+            circulcolor: AppColors.lightSurface,
             icon: Icons.dark_mode_outlined,
             iconcolor: cs.primary,
           ),
-          horizontalSpace(10),
           AdminIcons(
-            circulcolor: cs.surface,
+            circulcolor: AppColors.lightSurface,
             icon: Icons.arrow_forward,
             iconcolor: Colors.red,
           ),
