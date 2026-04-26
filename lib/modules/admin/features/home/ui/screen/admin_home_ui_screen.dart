@@ -57,8 +57,8 @@ class AdminHomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   AdminHomeCountainer(
-                    width: 200,
-                    height: 200,
+                    width: 150,
+                    height: 150,
                     size: 30,
                     icon1: Icons.attach_money_sharp,
                     text1: 'اجمالي المبيعات',
@@ -69,8 +69,8 @@ class AdminHomeScreen extends StatelessWidget {
                     coloricon1: AppColors.successContainer,
                   ),
                   AdminHomeCountainer(
-                    height: 200,
-                    width: 200,
+                    height:150,
+                    width: 150,
                     size: 30,
                     icon1: Icons.shopping_bag_outlined,
                     text1: 'الطلبات الكلية',
@@ -87,8 +87,8 @@ class AdminHomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   AdminHomeCountainer(
-                    width: 200,
-                    height: 200,
+                    width: 150,
+                    height: 150,
                     size: 30,
                     icon1: Icons.storefront_outlined,
                     text1: 'المتاجر النشطة',
@@ -99,8 +99,8 @@ class AdminHomeScreen extends StatelessWidget {
                     coloricon1: Colors.purple,
                   ),
                   AdminHomeCountainer(
-                    width: 200,
-                    height: 200,
+                    width: 150,
+                    height: 150,
                     size: 30,
                     icon1: Icons.fire_truck_outlined,
                     text1: 'الموردين',
@@ -115,6 +115,7 @@ class AdminHomeScreen extends StatelessWidget {
 
               verticalSpace(50.h),
               BigContainer(
+                width: double.infinity,height: 300,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -154,6 +155,7 @@ class AdminHomeScreen extends StatelessWidget {
                 ],
               ),
               BigContainer(
+                 width: double.infinity,height: 300,
                 children: [
                   Text('عدد الطلبات', style: TextStyles.font16bold),
                   verticalSpace(50.h),
@@ -171,6 +173,7 @@ class AdminHomeScreen extends StatelessWidget {
               ),
 
               BigContainer(
+                 width: double.infinity,height: 300,
                 children: [
                   Text('توزيع المستخدمين', style: TextStyles.font16bold),
                   verticalSpace(100.h),
@@ -203,11 +206,13 @@ class AdminHomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      horizontalSpace(100),
+                      horizontalSpace(20),
                       Column(
                         children: [
                           Text('65%', style: TextStyles.font15w700),
+                          verticalSpace(10),
                           Text('25%', style: TextStyles.font15w700),
+                          verticalSpace(10),
                           Text('10%', style: TextStyles.font15w700),
                         ],
                       ),
@@ -216,6 +221,7 @@ class AdminHomeScreen extends StatelessWidget {
                 ],
               ),
               BigContainer(
+                 width: double.infinity,height: 300,
                 children: [
                   Activities(
                     activity: [

@@ -1,4 +1,5 @@
 import 'package:b2b/core/theme/app_color_scheme_extention.dart';
+import 'package:b2b/core/theme/app_colors.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/modules/supplier/features/home/ui/widgets/supplier_search_bar.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class AppSearchFiled extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 12),
               height: 55.h,
               decoration: BoxDecoration(
-                color: cs.surface,
+                color: AppColors.lightBackground,
                 borderRadius: BorderRadius.circular(18),
                 border: Border.all(color: ext.borderColor),
               ),
@@ -42,7 +43,7 @@ class AppSearchFiled extends StatelessWidget {
                         onPressed: () {},
                         icon: Icon(
                           Icons.notifications_none,
-                          color: cs.onSurface,
+                          color: AppColors.darkSurface,
                         ),
                       ),
                       Positioned(
@@ -68,7 +69,7 @@ class AppSearchFiled extends StatelessWidget {
                         border: InputBorder.none,
                         suffixIcon: Icon(
                           Icons.search,
-                          color: cs.onSurfaceVariant,
+                          color: AppColors.darkSurface,
                         ),
                         hintStyle: TextStyles.font18w600.copyWith(
                           color: cs.onSurfaceVariant,

@@ -25,7 +25,7 @@ class B2bApp extends StatelessWidget {
               return MaterialApp(
                 title: 'B2B App',
                 debugShowCheckedModeBanner: false,
-                initialRoute: Routes.supplierHomeScreen,
+                initialRoute: Routes.adminUserScreen,
                 onGenerateRoute: appRouter.generateRoute,
                 theme: darkTheme,
                 darkTheme: darkTheme,

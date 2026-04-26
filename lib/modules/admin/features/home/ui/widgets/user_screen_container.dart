@@ -13,8 +13,8 @@ final String text;
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      width: 30,
-      height: 25,
+      width: 50,
+      height: 30,
       decoration: BoxDecoration(
         color: AppColors.lightSurface,
         borderRadius: BorderRadius.circular(10),
