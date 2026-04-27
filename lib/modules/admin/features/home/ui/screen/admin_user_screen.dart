@@ -20,19 +20,22 @@ class AdminUserScreen extends StatelessWidget {
       body: ListView(
         physics: NeverScrollableScrollPhysics(),
         children:[
-          AppbarFirstContainer(),
-           Expanded(
-             child: Column(
+          
+          Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
                        children: [
+                        AppbarFirstContainer(),
+                        verticalSpace(30),
                Padding(
-                  padding: const EdgeInsets.all(9.5),
-                  child: Text(
-                    'ادارة المستخدمين',
-                    style: TextStyles.font16bold,
-                    textAlign: TextAlign.left,
-                  ),
-                ),
+                 padding: const EdgeInsets.all(9.5),
+                 child: Text(
+                      'ادارة المستخدمين',
+                      style: TextStyles.font16bold,
+                     textAlign: TextAlign.left,
+                    ),
+               ),
+                
                 verticalSpace(10),
                 Padding(
                   padding: const EdgeInsets.all(9.5),
@@ -58,16 +61,16 @@ class AdminUserScreen extends StatelessWidget {
               Row(
                 children: [
                   Expanded(child: AppSearchFiled(hintText: 'ابحث عن مستخدم...')),
-                  AddBotton(),
+                  AddBotton(iconbottun: Icons.person_add_alt,textbottun: 'اضافة',),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  UserScreenContainer(text: 'الكل'),
-                  UserScreenContainer(text: 'متاجر'),
-                  UserScreenContainer(text: 'موردين'),
-                  UserScreenContainer(text: 'مدراء'),
+                  UserScreenContainer(text: 'الكل',containercolor: AppColors.lightSurface,),
+                  UserScreenContainer(text: 'متاجر',containercolor: AppColors.lightSurface),
+                  UserScreenContainer(text: 'موردين',containercolor: AppColors.lightSurface),
+                  UserScreenContainer(text: 'مدراء',containercolor: AppColors.lightSurface),
                 ],
               ),
               SizedBox(
@@ -93,7 +96,7 @@ class AdminUserScreen extends StatelessWidget {
                        
                      ]
                    ),
-           ),
+           
         ],
     )
     );

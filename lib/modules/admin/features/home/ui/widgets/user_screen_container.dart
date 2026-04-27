@@ -5,8 +5,10 @@ import 'package:b2b/core/theme/textstyles.dart';
 
 class UserScreenContainer extends StatelessWidget {
 final String text;
+final Color containercolor;
   UserScreenContainer({super.key,
   required this.text,
+  required this.containercolor,
   });
   
   @override
@@ -16,13 +18,13 @@ final String text;
       width: 50,
       height: 30,
       decoration: BoxDecoration(
-        color: AppColors.lightSurface,
+        color: containercolor,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: AppColors.neutral60.withOpacity(0.5),
           width: 2,
         )),
-        child: Text(text,style: TextStyles.font12w600,),
+        child: Text(text,style: TextStyles.font12w600,textAlign: TextAlign.center,),
         );
   }
 }

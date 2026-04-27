@@ -1,5 +1,6 @@
 import 'package:b2b/core/routing/routes.dart';
-import 'package:b2b/modules/admin/features/home/ui/screen/admin_home_ui_screen.dart';
+import 'package:b2b/modules/admin/features/home/ui/screen/admin_categories_screen.dart';
+import 'package:b2b/modules/admin/features/home/ui/screen/admin_home_screen.dart';
 import 'package:b2b/modules/auth/features/login/ui/screens/create_account.dart';
 import 'package:b2b/modules/auth/features/login/ui/screens/login_Screen.dart';
 import 'package:b2b/modules/super/features/main_layout.dart';
@@ -44,6 +45,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => AdminUserScreen());
       case Routes.adminHomeScreen:
         return MaterialPageRoute(builder: (_) => AdminHomeScreen());
+      case Routes.admincategoriesscreen:
+        return MaterialPageRoute(builder: (_) => AdminCategoriesScreen());
       case Routes.superOrderScreen:
         return MaterialPageRoute(builder: (_) => SuperOrderScreen());
       case Routes.superNewOrderScreen:
