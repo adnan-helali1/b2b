@@ -6,6 +6,7 @@ class Routes {
   static const String createAccountScreen = '/createaccountscreen';
   static const String superOrderScreen = '/superorderscreen';
   static const String adminUserScreen = '/adminuserscreen';
+  static const String admincategoriesscreen = '/admincategoriesscreen';
   static const String superInvoiceScreen = '/superinvoicescreen';
   static const String superPosScreen = '/superposscreen';
   static const String superPosCartScreen = '/superposcartscreen';

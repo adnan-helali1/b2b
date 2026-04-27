@@ -36,9 +36,9 @@ class Usersname extends StatelessWidget {
                     verticalSpace(10),
                     Row(
                       children: [
-                        UserScreenContainer(text: 'متجر'),
+                        UserScreenContainer(text: 'متجر',containercolor: AppColors.lightSurface),
                         horizontalSpace(10),
-                        UserScreenContainer(text: 'نشط'),
+                        UserScreenContainer(text: 'نشط',containercolor: AppColors.lightSurface),
                       ],
                     ),
                   ],
