@@ -21,7 +21,6 @@ class Numberofrequests extends StatelessWidget {
       aspectRatio: 1,
       child: LayoutBuilder(
         builder: (context, constraints) {
-          final width = constraints.maxWidth;
           final height = constraints.maxHeight;
 
           return Stack(

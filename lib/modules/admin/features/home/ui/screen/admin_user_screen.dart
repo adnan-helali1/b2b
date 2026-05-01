@@ -1,7 +1,6 @@
 import 'package:b2b/core/theme/textstyles.dart';
 import 'package:b2b/core/widgets/app_search_filed.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/add_botton.dart';
-import 'package:b2b/modules/admin/features/home/ui/widgets/homecountainer.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/user_container.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/user_screen_container.dart';
 import 'package:b2b/modules/admin/features/home/ui/widgets/usersname.dart';
@@ -19,13 +18,13 @@ class AdminUserScreen extends StatelessWidget {
       backgroundColor: AppColors.lightBackground,
       body: ListView(
         physics: NeverScrollableScrollPhysics(),
-        children:[
+        children: [
           AppbarFirstContainer(),
-           Expanded(
-             child: Column(
+          Expanded(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                       children: [
-               Padding(
+              children: [
+                Padding(
                   padding: const EdgeInsets.all(9.5),
                   child: Text(
                     'ادارة المستخدمين',
@@ -43,59 +42,69 @@ class AdminUserScreen extends StatelessWidget {
                   ),
                 ),
                 verticalSpace(10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                UserContainer(iconnumbercolor: AppColors.darkSurface,
-                 numbericon: Icons.looks_6_outlined, text: 'اجمالي',),
-                 UserContainer(iconnumbercolor: AppColors.success,
-                 numbericon: Icons.looks_4_outlined, text: 'نشط',),
-                 UserContainer(iconnumbercolor: AppColors.warning,
-                 numbericon: Icons.looks_one_outlined, text: 'قيد المراجعة',),
-                ]
-              ),
-              verticalSpace(15),
-              Row(
-                children: [
-                  Expanded(child: AppSearchFiled(hintText: 'ابحث عن مستخدم...')),
-                  AddBotton(),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  UserScreenContainer(text: 'الكل'),
-                  UserScreenContainer(text: 'متاجر'),
-                  UserScreenContainer(text: 'موردين'),
-                  UserScreenContainer(text: 'مدراء'),
-                ],
-              ),
-              SizedBox(
-                width: double.infinity,
-                height: 500,
-                child: Usersname(
-                  usersname: [
-                    {
-                      "Icon": Icons.store_mall_directory_outlined,
-                      "Iconcolor": AppColors.success,
-                      "text1": 'أحمد محمد السعيد',
-                      "text2": 'aggggtr',
-                    },
-                    {
-                      "Icon": Icons.store_mall_directory_outlined,
-                      "Iconcolor": AppColors.success,
-                      "text1": 'أحمد محمد السعيد',
-                      "text2": 'aggggtr',
-                    },
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    UserContainer(
+                      iconnumbercolor: AppColors.darkSurface,
+                      numbericon: Icons.looks_6_outlined,
+                      text: 'اجمالي',
+                    ),
+                    UserContainer(
+                      iconnumbercolor: AppColors.success,
+                      numbericon: Icons.looks_4_outlined,
+                      text: 'نشط',
+                    ),
+                    UserContainer(
+                      iconnumbercolor: AppColors.warning,
+                      numbericon: Icons.looks_one_outlined,
+                      text: 'قيد المراجعة',
+                    ),
                   ],
                 ),
-              ),
-                       
-                     ]
-                   ),
-           ),
+                verticalSpace(15),
+                Row(
+                  children: [
+                    Expanded(
+                      child: AppSearchFiled(hintText: 'ابحث عن مستخدم...'),
+                    ),
+                    AddBotton(),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    UserScreenContainer(text: 'الكل'),
+                    UserScreenContainer(text: 'متاجر'),
+                    UserScreenContainer(text: 'موردين'),
+                    UserScreenContainer(text: 'مدراء'),
+                  ],
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 500,
+                  child: Usersname(
+                    usersname: [
+                      {
+                        "Icon": Icons.store_mall_directory_outlined,
+                        "Iconcolor": AppColors.success,
+                        "text1": 'أحمد محمد السعيد',
+                        "text2": 'aggggtr',
+                      },
+                      {
+                        "Icon": Icons.store_mall_directory_outlined,
+                        "Iconcolor": AppColors.success,
+                        "text1": 'أحمد محمد السعيد',
+                        "text2": 'aggggtr',
+                      },
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
-    )
+      ),
     );
   }
 }

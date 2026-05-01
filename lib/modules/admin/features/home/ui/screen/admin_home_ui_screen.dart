@@ -12,7 +12,6 @@ import 'package:b2b/modules/admin/features/home/ui/widgets/total_sales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:b2b/core/theme/app_colors.dart';
-import 'package:b2b/core/widgets/snakBar/app_bottom_nav_bar.dart';
 
 class AdminHomeScreen extends StatelessWidget {
   const AdminHomeScreen({super.key});
@@ -69,7 +68,7 @@ class AdminHomeScreen extends StatelessWidget {
                     coloricon1: AppColors.successContainer,
                   ),
                   AdminHomeCountainer(
-                    height:150,
+                    height: 150,
                     width: 150,
                     size: 30,
                     icon1: Icons.shopping_bag_outlined,
@@ -115,7 +114,8 @@ class AdminHomeScreen extends StatelessWidget {
 
               verticalSpace(50.h),
               BigContainer(
-                width: double.infinity,height: 300,
+                width: double.infinity,
+                height: 300,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -155,7 +155,8 @@ class AdminHomeScreen extends StatelessWidget {
                 ],
               ),
               BigContainer(
-                 width: double.infinity,height: 300,
+                width: double.infinity,
+                height: 300,
                 children: [
                   Text('عدد الطلبات', style: TextStyles.font16bold),
                   verticalSpace(50.h),
@@ -173,7 +174,8 @@ class AdminHomeScreen extends StatelessWidget {
               ),
 
               BigContainer(
-                 width: double.infinity,height: 300,
+                width: double.infinity,
+                height: 300,
                 children: [
                   Text('توزيع المستخدمين', style: TextStyles.font16bold),
                   verticalSpace(100.h),
@@ -221,7 +223,8 @@ class AdminHomeScreen extends StatelessWidget {
                 ],
               ),
               BigContainer(
-                 width: double.infinity,height: 300,
+                width: double.infinity,
+                height: 300,
                 children: [
                   Activities(
                     activity: [

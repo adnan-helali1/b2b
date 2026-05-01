@@ -11,14 +11,14 @@ class Usersname extends StatelessWidget {
   Usersname({required this.usersname, super.key});
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ListView.builder(
       shrinkWrap: true,
       itemCount: usersname.length,
       itemBuilder: (context, index) {
         final item = usersname[index];
         return BigContainer(
-           width: double.infinity,height: 130,
+          width: double.infinity,
+          height: 130,
           children: [
             Row(
               children: [

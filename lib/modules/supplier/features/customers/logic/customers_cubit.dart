@@ -79,10 +79,8 @@ class CustomersCubit extends Cubit<CustomersState> {
       0,
       (sum, c) => sum + c.pendingDues,
     );
-    final totalOrders = customers.fold<int>(
-      0,
-      (sum, c) => sum + c.ordersCount,
-    );
+    final totalOrders = customers.fold<int>(0, (sum, c) => sum + c.ordersCount);
+    // ignore: unused_local_variable
     final averageOrder = totalOrders == 0
         ? 0
         : totalSales / totalOrders.toDouble();

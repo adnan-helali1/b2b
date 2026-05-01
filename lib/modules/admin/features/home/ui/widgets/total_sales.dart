@@ -1,7 +1,6 @@
 import 'package:b2b/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:b2b/core/theme/app_colors.dart';
-import 'package:flutter/widgets.dart';
 
 class TotalSales extends StatelessWidget {
   final List<double> data;

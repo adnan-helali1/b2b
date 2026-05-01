@@ -18,51 +18,29 @@ class OrderEntity extends Equatable {
   });
 
   @override
-  List<Object?> get props => [
-    id,
-    storeName,
-    productsCount,
-    totalPrice,
-    status,
-  ];
+  List<Object?> get props => [id, storeName, productsCount, totalPrice, status];
 }
 
-enum OrdersFilter {
-  all,
-  newOrder,
-  accepted,
-  preparing,
-  shipped,
-}
+enum OrdersFilter { all, newOrder, accepted, preparing, shipped }
 
 class OrdersState extends Equatable {
   final List<OrderEntity> orders;
   final OrdersFilter selectedFilter;
 
-  const OrdersState({
-    required this.orders,
-    required this.selectedFilter,
-  });
+  const OrdersState({required this.orders, required this.selectedFilter});
 
   List<OrderEntity> get filteredOrders {
     switch (selectedFilter) {
       case OrdersFilter.newOrder:
-        return orders
-            .where((e) => e.status == OrderStatus.newOrder)
-            .toList();
+        return orders.where((e) => e.status == OrderStatus.newOrder).toList();
       case OrdersFilter.accepted:
-        return orders
-            .where((e) => e.status == OrderStatus.accepted)
-            .toList();
+        return orders.where((e) => e.status == OrderStatus.accepted).toList();
       case OrdersFilter.preparing:
-        return orders
-            .where((e) => e.status == OrderStatus.preparing)
-            .toList();
+        return orders.where((e) => e.status == OrderStatus.preparing).toList();
       case OrdersFilter.shipped:
-        return orders
-            .where((e) => e.status == OrderStatus.shipped)
-            .toList();
+        return orders.where((e) => e.status == OrderStatus.shipped).toList();
       case OrdersFilter.all:
+      // ignore: unreachable_switch_default
       default:
         return orders;
     }

@@ -4,14 +4,11 @@ import 'package:flutter/widgets.dart';
 import 'package:b2b/core/theme/textstyles.dart';
 
 class UserScreenContainer extends StatelessWidget {
-final String text;
-  UserScreenContainer({super.key,
-  required this.text,
-  });
-  
+  final String text;
+  UserScreenContainer({super.key, required this.text});
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       width: 50,
       height: 30,
@@ -21,8 +18,9 @@ final String text;
         border: Border.all(
           color: AppColors.neutral60.withOpacity(0.5),
           width: 2,
-        )),
-        child: Text(text,style: TextStyles.font12w600,),
-        );
+        ),
+      ),
+      child: Text(text, style: TextStyles.font12w600),
+    );
   }
 }

@@ -1,7 +1,3 @@
-import 'package:b2b/core/helpers/extensions.dart';
-import 'package:b2b/core/routing/routes.dart';
-import 'package:b2b/core/theme/colors.dart';
-import 'package:b2b/core/theme/textstyles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +12,7 @@ class SearchFieldHomeSuper extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         height: 55.h,
         decoration: BoxDecoration(
-       //   color: ColorsManegar.white,
+          //   color: ColorsManegar.white,
           borderRadius: BorderRadius.circular(25),
         ),
         child: Row(
@@ -25,7 +21,7 @@ class SearchFieldHomeSuper extends StatelessWidget {
             Stack(
               children: [
                 IconButton(
-                  onPressed: () { },
+                  onPressed: () {},
                   icon: const Icon(Icons.notifications_none),
                 ),
 
@@ -36,7 +32,7 @@ class SearchFieldHomeSuper extends StatelessWidget {
                     width: 8,
                     height: 8,
                     decoration: const BoxDecoration(
-                     // color: ColorsManegar.red,
+                      // color: ColorsManegar.red,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -50,7 +46,7 @@ class SearchFieldHomeSuper extends StatelessWidget {
                   hintText: "ابحث عن منتج، فئة أو مورد...",
                   border: InputBorder.none,
                   suffixIcon: const Icon(Icons.search),
-                //  hintStyle: TextStyles.font18greyw600,
+                  //  hintStyle: TextStyles.font18greyw600,
                 ),
               ),
             ),
